@@ -4,8 +4,8 @@ const { login, signup } = require("../controllers/auth");
 const router = express.Router();
 
 //Login Route
-router.get(
-  "/auth",
+router.post(
+  "/auth/login",
   [
     check("email", "Enter Valid Email Address").isEmail(),
     check("password", "Password Required to Login").notEmpty(),

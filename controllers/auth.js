@@ -1,9 +1,44 @@
 const User = require("../models/User");
+const { validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 
 //User Login Api
-exports.login = (req, res) => {
+exports.login = async (req, res) => {
   res.send("Hello World");
 };
 
 //User Register Api
-exports.register = (req, res) => {};
+exports.signup = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { firstname, lastname, password, contactnumber, email } = req.body;
+
+  user = new User({
+    firstname,
+    lastname,
+    email,
+    password,
+    contactnumber,
+  });
+
+  const salt = await bcrypt.genSalt(10);
+
+  //Password Hashed
+  user.password = await bcrypt.hash(password, salt);
+
+  user.save((err, user) => {
+    if (err) {
+      return res.status(400).json({
+        err: "NOT ABLE TO SAVE USER IN DB",
+      });
+    }
+    res.json({
+      name: user.firstname + user.lastname,
+      email: user.email,
+      id: user._id,
+    });
+  });
+};

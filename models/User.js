@@ -16,6 +16,10 @@ const UserSchema = new mongoose.Schema({
   contactnumber: {
     type: String,
   },
+  usertype: {
+    type: String,
+    default: 1,
+  },
 });
 
 module.exports = mongoose.model("User", UserSchema);

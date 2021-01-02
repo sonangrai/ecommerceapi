@@ -8,6 +8,9 @@ const app = express();
 //Connecting to Database
 connectDB();
 
+//Validating json usage
+app.use(express.json({ extended: false }));
+
 //App
 app.use(cors());
 

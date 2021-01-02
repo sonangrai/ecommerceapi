@@ -1,4 +1,9 @@
+const User = require("../models/User");
+
+//User Login Api
 exports.login = (req, res) => {
-  console.log("Login Routes");
   res.send("Hello World");
 };
+
+//User Register Api
+exports.register = (req, res) => {};

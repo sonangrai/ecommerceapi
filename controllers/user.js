@@ -1,4 +1,6 @@
 const User = require("../models/User");
+const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 //Returning all the admin users
 exports.alladmin = async (req, res) => {
@@ -58,6 +60,45 @@ exports.updateinfo = async (req, res) => {
     user = new User(userFields);
     await user.save();
     res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Change Password
+exports.changepswd = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  const { oldpassword, password } = req.body;
+
+  user = new User({
+    password,
+  });
+
+  const salt = await bcrypt.genSalt(10);
+
+  const userFields = {};
+  if (password) userFields.password = await bcrypt.hash(password, salt);
+
+  try {
+    let user = await User.findById(req.params.id);
+
+    //Checking Password
+    const isMatch = await bcrypt.compare(oldpassword, user.password);
+
+    if (!isMatch) {
+      return res.status(400).send("Password Dont Match");
+    }
+
+    user = await User.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: userFields },
+      { new: true }
+    );
+    return res.json(user);
   } catch (error) {
     console.log(error);
   }

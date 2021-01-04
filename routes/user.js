@@ -6,6 +6,8 @@ const {
   alladmin,
   updateinfo,
   changepswd,
+  recover,
+  newpswd,
 } = require("../controllers/user");
 
 //Get All User
@@ -27,5 +29,9 @@ router.put(
   ],
   changepswd
 );
+
+//Forgot Password
+router.post("/recover", [check("email", "Email Required").notEmpty()], recover);
+router.post("/resetpassword/:userid/:token", newpswd);
 
 module.exports = router;

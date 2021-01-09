@@ -3,6 +3,7 @@ const Passwordreset = require("../models/Passwordreset");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 //Returning all the admin users
@@ -132,11 +133,13 @@ exports.recover = async (req, res) => {
     user: checkemail._id,
     token: tok,
   });
-  // passwordreset.user = payload.id;
-  // passwordreset.token = tok;
 
   passwordreset.save((err, token) => {
     if (err) throw err;
+
+    //Calling Send Mail
+    sendmail(payload.id, tok, payload.email);
+
     res.send(
       '<a href="/api/resetpassword/' +
         payload.id +
@@ -145,6 +148,31 @@ exports.recover = async (req, res) => {
         '">Reset password</a>'
     );
   });
+};
+
+//Sending Mail
+const sendmail = async (id, token, email) => {
+  let testAccount = await nodemailer.createTestAccount();
+
+  let transporter = nodemailer.createTransport({
+    host: "smtp.ethereal.email",
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass, // generated ethereal password
+    },
+  });
+
+  let info = await transporter.sendMail({
+    from: '"Fred Foo 👻" <foo@example.com>', // sender address
+    to: email, // list of receivers
+    subject: "Password Reset Request", // Subject line
+    text: "Forgot Your Password", // plain text body
+    html: `<p>CLick here to change your password <a href="/api/resetpassword/${id}/${token}">Reset password</a> </p>`, // html body
+  });
+
+  console.log("Message sent: %s", info.messageId);
 };
 
 //Change Password After Recovery

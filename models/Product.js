@@ -18,6 +18,12 @@ const ProductSchema = new mongoose.Schema(
     rate: {
       type: Number,
     },
+    color: {
+      type: String,
+    },
+    weight: {
+      type: Number,
+    },
     invamount: {
       type: Number,
     },

@@ -1,12 +1,17 @@
 const express = require("express");
-const { postproduct } = require("../controllers/product");
+const {
+  postproduct,
+  getallproductbycat,
+  getallproduct,
+} = require("../controllers/product");
 const { check } = require("express-validator");
 const router = express.Router();
 
 //Get All Product By Category
-router.get("/product", (req, res) => {
-  res.send("Product Get by Category");
-});
+router.get("/product/:cat", getallproductbycat);
+
+//Get All Product
+router.get("/product", getallproduct);
 
 //Post the product
 router.post(
@@ -18,5 +23,8 @@ router.post(
   ],
   postproduct
 );
+
+//Edit the product
+router.put("/product/:pid", postproduct);
 
 module.exports = router;

@@ -12,4 +12,4 @@ const GallerySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-exports.module = mongoose.model("Gallery", GallerySchema);
+module.exports = mongoose.model("Gallery", GallerySchema);

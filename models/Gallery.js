@@ -8,6 +8,9 @@ const GallerySchema = new mongoose.Schema(
     imageurl: {
       type: String,
     },
+    imgpublicid: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

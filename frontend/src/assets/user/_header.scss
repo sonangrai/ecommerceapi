@@ -1,0 +1,219 @@
+header {
+  padding: 1em 0;
+  .upper-head {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1em;
+    .logo {
+      img {
+        width: 150px;
+      }
+    }
+    .top-right {
+      @include flexer(flex-end, center);
+      height: 100%;
+      .link-item {
+        cursor: pointer;
+        transition: 0.3s;
+        padding: 0.2em;
+        color: #000;
+        &:hover {
+          color: $primary-color;
+        }
+        sup {
+          background-color: $primary-color;
+          color: #fff;
+          border-radius: 24px;
+          padding: 0.2em;
+        }
+      }
+      .link-item.droppe {
+        font-weight: 600;
+        position: relative;
+      }
+    }
+  }
+  .lower-head {
+    padding-top: 1em;
+    .category {
+      font-weight: 600;
+      @include flexer(flex-start, center);
+      height: 100%;
+      #cat {
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          color: $primary-color;
+        }
+        button.catbtn {
+          background: transparent;
+          border: 0;
+          padding: 0;
+          &:focus {
+            outline: 0;
+          }
+          span {
+            margin: 0 0.5em;
+          }
+        }
+        i {
+          &:before {
+            margin-left: 0;
+          }
+          font-weight: 400;
+        }
+        i.flaticon-down-arrow::before {
+          font-size: 12px;
+        }
+      }
+    }
+    .category-model {
+      width: 80vw;
+      height: 80vh;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 2em;
+      border-radius: 4px;
+      overflow-y: scroll;
+      .categories {
+        .header {
+          margin-bottom: 1em;
+          span {
+            font-size: 1.5em;
+            text-transform: uppercase;
+          }
+        }
+        .main-category {
+          width: 33%;
+          display: inline-flex;
+          flex-wrap: wrap;
+          a {
+            width: 100%;
+            color: $primary-color;
+            font-size: 1.2em;
+          }
+          .sub-category {
+            width: 100%;
+            ul {
+              padding: 0;
+              list-style: none;
+              li {
+                a {
+                  font-size: 1em;
+                  color: #000;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .search-box {
+      form {
+        width: 500px;
+        background-color: #f7f7f7;
+        border-radius: 2px;
+        overflow: hidden;
+        @include flexer(space-between, center);
+        i {
+          width: 10%;
+          &:before {
+            color: #b3aeae;
+          }
+        }
+        input {
+          width: 70%;
+          border: 0;
+          padding: 0.6em;
+          background: transparent;
+          &::placeholder {
+            color: #b3aeae;
+          }
+          &:focus {
+            outline: 0;
+          }
+        }
+        button.search {
+          width: 20%;
+          background: $primary-color;
+          color: #fff;
+          border: 0;
+          padding: 0.6em;
+        }
+      }
+    }
+    .hotline {
+      @include flexer(flex-end, center);
+      height: 100%;
+      .call {
+        @include full-flexer;
+        justify-content: space-between;
+        width: 206px;
+        .call-ico {
+          width: 28%;
+          .flaticon-call-center:before {
+            font-size: 2em;
+          }
+        }
+        .call-info {
+          width: 70%;
+          strong,
+          span {
+            display: block;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 3em 0;
+  background-color: $secondary-color;
+  .foot-item {
+    h3 {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1em;
+      margin: 0;
+    }
+    ul {
+      padding: 0;
+      margin: 1em 0;
+      list-style: none;
+      li {
+        color: $dark-text;
+        font-size: 0.9em;
+        a {
+          color: $dark-text;
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+  .bottom-foot {
+    @include full-flexer;
+    justify-content: space-between;
+    padding-top: 2em;
+    border-top: 1px solid $dark-text;
+    .copyright-part {
+      color: $dark-text;
+      p {
+        margin: 0;
+      }
+    }
+    .social-link {
+      ul {
+        @include full-flexer;
+        list-style: none;
+        li {
+          a {
+            color: $dark-text;
+          }
+        }
+      }
+    }
+  }
+}

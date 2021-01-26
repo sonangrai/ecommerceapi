@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../../assets/admin/main.css";
+import "../../../assets/admin/main.css";
 
 document.title = "Login - Pasal";
 

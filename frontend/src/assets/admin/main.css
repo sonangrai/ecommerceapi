@@ -1,0 +1,207 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+@-webkit-keyframes jello-vertical {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes jello-vertical {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    -webkit-transform: scale3d(0.85, 1.15, 1);
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.login__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100vh;
+}
+
+.login__row .form__part {
+  width: 35%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.login__row .form__part .site__title {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  color: #f16624;
+  font-weight: 600;
+}
+
+.login__row .form__part form {
+  width: 348px;
+}
+
+.login__row .form__part form .form__item {
+  margin-bottom: 1em;
+}
+
+.login__row .form__part form .form__item label {
+  display: block;
+  width: 100%;
+  font-size: 0.8em;
+  color: #857d7d;
+}
+
+.login__row .form__part form .form__item input {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #b9b9b9;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.login__row .form__part form .form__item input:focus {
+  border: 1px solid #f16624;
+}
+
+.login__row .form__part form .form__item button {
+  padding: 0.5em 1em;
+  border: 0;
+  background-color: #f16624;
+  color: #fff;
+  width: 100%;
+  padding: 0.8em;
+}
+
+.login__row .illustration__part {
+  width: 65%;
+  height: 100%;
+}
+
+.login__row .illustration__part img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+  .login__row .form__part {
+    width: 40%;
+  }
+  .login__row .illustration__part {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .login__row .form__part {
+    width: 50%;
+  }
+  .login__row .illustration__part {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login__row .form__part form {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login__row .form__part {
+    width: 100%;
+    background-image: url(https://cdn.pixabay.com/photo/2016/11/01/18/38/background-1789175_1280.png);
+  }
+  .login__row .form__part form {
+    background-color: #fff;
+    padding: 2em;
+    width: 300px;
+  }
+  .login__row .illustration__part {
+    display: none;
+  }
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+/*# sourceMappingURL=main.css.map */

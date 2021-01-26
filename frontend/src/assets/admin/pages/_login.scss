@@ -1,0 +1,102 @@
+.login__row {
+  @include flexer(unset, center);
+  flex-wrap: wrap;
+  height: 100vh;
+  .form__part {
+    width: 35%;
+    height: 100%;
+    @include flexer(center, center);
+    flex-wrap: wrap;
+    .site__title {
+      width: 100%;
+      text-align: center;
+      font-size: $gaint-font;
+      color: $primary-color;
+      font-weight: $heavy-weight;
+    }
+    form {
+      width: 348px;
+      .form__item {
+        margin-bottom: 1em;
+        label {
+          display: block;
+          width: 100%;
+          font-size: $small-font;
+          color: $dark-text;
+        }
+        input {
+          width: 100%;
+          @include input;
+          transition: $slow-ease;
+          &:focus {
+            border: 1px solid $primary-color;
+          }
+        }
+        button {
+          @include primary-btn;
+          background-color: $primary-color;
+          color: #fff;
+          width: 100%;
+          padding: 0.8em;
+        }
+      }
+    }
+  }
+  .illustration__part {
+    width: 65%;
+    height: 100%;
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .login__row {
+    .form__part {
+      width: 40%;
+    }
+    .illustration__part {
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .login__row {
+    .form__part {
+      width: 50%;
+    }
+    .illustration__part {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login__row {
+    .form__part {
+      form {
+        width: 250px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login__row {
+    .form__part {
+      width: 100%;
+      background-image: url(https://cdn.pixabay.com/photo/2016/11/01/18/38/background-1789175_1280.png);
+      form {
+        background-color: #fff;
+        padding: 2em;
+        width: 300px;
+      }
+    }
+    .illustration__part {
+      display: none;
+    }
+  }
+}

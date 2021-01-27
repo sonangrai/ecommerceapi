@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const header = () => {
+const Header = () => {
   return (
     <Fragment>
       <header>
@@ -277,4 +277,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

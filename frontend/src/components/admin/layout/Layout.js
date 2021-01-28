@@ -8,12 +8,20 @@ import Home from "../Home";
 const Layout = () => {
   return (
     <Fragment>
-      <Header />
-      <Sidebar />
-      <Switch>
-        <Route exact path="/admin/home" component={Home} />
-      </Switch>
-      <Footer />
+      <div className="dash__row">
+        <div className="sidebar__part">
+          <Sidebar />
+        </div>
+        <div className="maincontent__part">
+          <Header />
+          <div className="contents__box">
+            <Switch>
+              <Route exact path="/admin" component={Home} />
+            </Switch>
+          </div>
+          <Footer />
+        </div>
+      </div>
     </Fragment>
   );
 };

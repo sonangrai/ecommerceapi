@@ -17,8 +17,8 @@ export default function Routes() {
     <Fragment>
       <Header />
       <Switch>
-        <Route exact path="/login" component={customer_login} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={customer_login} />
       </Switch>
       <Footer />
     </Fragment>

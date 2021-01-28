@@ -1,0 +1,94 @@
+.dash__row {
+  @include full-flexer;
+  height: 100vh;
+  .sidebar__part {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    .sidebar {
+      height: 100%;
+      background-color: $primary-color;
+      box-shadow: $simple-box-shadow;
+      .sys__title {
+        padding: 2em 1em;
+        span {
+          font-size: $gaint-font;
+          color: #fff;
+        }
+        svg {
+          width: 40px;
+          height: 40px;
+          fill: #fff;
+          margin-right: 0.5em;
+        }
+      }
+      .menu__box {
+        margin: 2em 0;
+        .menu__item {
+          margin: 1em 0;
+          padding: 0 1em;
+          a {
+            color: #fff;
+            svg {
+              fill: #fff;
+              width: 30px;
+              height: 30px;
+              margin-right: 1em;
+            }
+          }
+        }
+        .menu__item.active {
+          border-left: 4px solid #fff;
+          a {
+            font-weight: $heavy-weight;
+          }
+        }
+      }
+    }
+  }
+  .maincontent__part {
+    width: 85%;
+    margin-left: 15%;
+    .header {
+      @include flexer(flex-end, center);
+      padding: 0.8em 0;
+      box-shadow: 0px -1px 10px -5px;
+      position: fixed;
+      left: 15%;
+      width: 84%;
+      background: #fff;
+      .head__item {
+        padding: 0 1em;
+        .notification {
+          sup {
+            background-color: $primary-color;
+            color: #fff;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            @include flexer(center, center);
+            display: inline-flex;
+          }
+        }
+        svg {
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+    .contents__box {
+      padding: 2em;
+      margin-top: 3em;
+    }
+    .footer {
+      text-align: center;
+      padding: 0.2em;
+    }
+  }
+}

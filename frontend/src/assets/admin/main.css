@@ -185,6 +185,142 @@
   }
 }
 
+.dash__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 100vh;
+}
+
+.dash__row .sidebar__part {
+  width: 15%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.dash__row .sidebar__part .sidebar {
+  height: 100%;
+  background-color: #f16624;
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.075);
+          box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.075);
+}
+
+.dash__row .sidebar__part .sidebar .sys__title {
+  padding: 2em 1em;
+}
+
+.dash__row .sidebar__part .sidebar .sys__title span {
+  font-size: 2em;
+  color: #fff;
+}
+
+.dash__row .sidebar__part .sidebar .sys__title svg {
+  width: 40px;
+  height: 40px;
+  fill: #fff;
+  margin-right: 0.5em;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box {
+  margin: 2em 0;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box .menu__item {
+  margin: 1em 0;
+  padding: 0 1em;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box .menu__item a {
+  color: #fff;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box .menu__item a svg {
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+  margin-right: 1em;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box .menu__item.active {
+  border-left: 4px solid #fff;
+}
+
+.dash__row .sidebar__part .sidebar .menu__box .menu__item.active a {
+  font-weight: 600;
+}
+
+.dash__row .maincontent__part {
+  width: 85%;
+  margin-left: 15%;
+}
+
+.dash__row .maincontent__part .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.8em 0;
+  -webkit-box-shadow: 0px -1px 10px -5px;
+          box-shadow: 0px -1px 10px -5px;
+  position: fixed;
+  left: 15%;
+  width: 84%;
+  background: #fff;
+}
+
+.dash__row .maincontent__part .header .head__item {
+  padding: 0 1em;
+}
+
+.dash__row .maincontent__part .header .head__item .notification sup {
+  background-color: #f16624;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.dash__row .maincontent__part .header .head__item svg {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.dash__row .maincontent__part .header .head__item a {
+  color: #f16624;
+}
+
+.dash__row .maincontent__part .contents__box {
+  padding: 2em;
+  margin-top: 3em;
+}
+
+.dash__row .maincontent__part .footer {
+  text-align: center;
+  padding: 0.2em;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   margin: 0;

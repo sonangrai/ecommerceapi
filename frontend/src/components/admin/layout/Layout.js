@@ -5,25 +5,41 @@ import Sidebar from "./Sidebar";
 import Header from "./Header";
 import Home from "../Home";
 
-const Layout = () => {
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import login from "../auth/login";
+
+const Layout = ({ isAuthenticated }) => {
   return (
     <Fragment>
-      <div className="dash__row">
-        <div className="sidebar__part">
-          <Sidebar />
-        </div>
-        <div className="maincontent__part">
-          <Header />
-          <div className="contents__box">
-            <Switch>
-              <Route exact path="/admin" component={Home} />
-            </Switch>
+      {isAuthenticated ? (
+        <div className="dash__row">
+          <div className="sidebar__part">
+            <Sidebar />
           </div>
-          <Footer />
+          <div className="maincontent__part">
+            <Header />
+            <div className="contents__box">
+              <Switch>
+                <Route exact path="/admin" component={Home} />
+              </Switch>
+            </div>
+            <Footer />
+          </div>
         </div>
-      </div>
+      ) : (
+        <Route component={login} />
+      )}
     </Fragment>
   );
 };
 
-export default Layout;
+Layout.protoTypes = {
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Layout);

@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import "../../../assets/admin/main.css";
 
-document.title = "Login - Pasal";
+import { connect } from "react-redux";
+
+document.title = "Login - Pasal Admin";
 
 const login = () => {
   return (
@@ -39,4 +41,8 @@ const login = () => {
   );
 };
 
-export default login;
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(login);

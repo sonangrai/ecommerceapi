@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Routes Import
 import routes from "./components/routes";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
       <Provider store={store}>
         <Router>
           <Switch>
@@ -15,7 +16,7 @@ function App() {
           </Switch>
         </Router>
       </Provider>
-    </div>
+    </Fragment>
   );
 }
 

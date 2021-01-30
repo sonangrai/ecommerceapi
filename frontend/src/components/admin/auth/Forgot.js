@@ -1,19 +1,18 @@
 import React, { Fragment, useState } from "react";
 import "../../../assets/admin/main.css";
-import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
-import { login } from "../../../actions/auth";
+import { recover } from "../../../actions/auth";
+import Alert from "../layout/Alert";
 
-document.title = "Login - Pasal Admin";
+document.title = "Recover Password - Pasal Admin";
 
-const Login = ({ login }) => {
+const Forgot = ({ recover }) => {
   const [data, setdata] = useState({
     email: "",
-    password: "",
   });
 
-  const { email, password } = data;
+  const { email } = data;
 
   const onChange = (e) => {
     setdata({ ...data, [e.target.name]: e.target.value });
@@ -21,7 +20,7 @@ const Login = ({ login }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    login(email, password);
+    recover(email);
   };
 
   return (
@@ -44,21 +43,9 @@ const Login = ({ login }) => {
                 />
               </div>
               <div className="form__item">
-                <label>Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={onChange}
-                />
-              </div>
-              <div className="form__item">
-                <button type="submit">Login</button>
+                <button type="submit">Submit Mail</button>
               </div>
             </form>
-            <Link className="" to="/admin/forgot">
-              Forgot Password
-            </Link>
           </div>
         </div>
         <div className="illustration__part">
@@ -68,6 +55,7 @@ const Login = ({ login }) => {
           />
         </div>
       </div>
+      <Alert />
     </Fragment>
   );
 };
@@ -76,4 +64,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { login })(Login);
+export default connect(mapStateToProps, { recover })(Forgot);

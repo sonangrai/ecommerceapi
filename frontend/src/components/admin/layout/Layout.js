@@ -7,7 +7,7 @@ import Home from "../Home";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import login from "../auth/login";
+import login from "../auth/Login";
 
 const Layout = ({ isAuthenticated }) => {
   return (

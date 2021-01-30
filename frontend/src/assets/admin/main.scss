@@ -24,3 +24,14 @@ img {
 button {
   cursor: pointer;
 }
+
+.cus-alert {
+  position: absolute;
+  width: 20%;
+  bottom: 10%;
+  left: 6%;
+  background: #db6c2b85;
+  border: 1px solid #000;
+  text-transform: capitalize;
+  color: #000;
+}

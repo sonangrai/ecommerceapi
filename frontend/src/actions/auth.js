@@ -78,3 +78,39 @@ export const recover = (email) => async (dispatch) => {
     console.log(errors);
   }
 };
+
+//New Password
+export const newpswd = (password, repassword, uid, tid) => async (dispatch) => {
+  if (password !== repassword) {
+    dispatch(setAlert("Passwords Doesnt Match", "danger"));
+  }
+
+  var jdata = JSON.stringify({ password });
+  console.log(jdata);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    const res = await Axios.post(
+      `/api/resetpassword/${uid}/${tid}`,
+      jdata,
+      config
+    );
+    dispatch({
+      type: types.PASSWORD_CHANGED,
+      payload: res.data,
+    });
+    dispatch(setAlert("Password Changed", "success"));
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+    dispatch({
+      type: types.PASSWORD_CHANGE_FAIL,
+    });
+  }
+};

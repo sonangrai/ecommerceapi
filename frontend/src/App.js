@@ -9,9 +9,12 @@ import routes from "./components/routes";
 import { Fragment } from "react";
 
 function App() {
+  let uid = localStorage.getItem("userid");
   useEffect(() => {
-    store.dispatch(loadUser());
-  }, []);
+    if (uid != null) {
+      store.dispatch(loadUser(uid));
+    }
+  }, [uid]);
 
   return (
     <Fragment>

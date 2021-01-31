@@ -27,7 +27,6 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: types.LOGIN_FAIL,
     });
-    console.log(errors);
   }
 };
 

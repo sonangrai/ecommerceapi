@@ -346,9 +346,23 @@ button {
   width: 20%;
   bottom: 10%;
   left: 6%;
-  background: #db6c2b85;
-  border: 1px solid #000;
+  background: #f16624c9;
+  border: 1px solid #989292;
   text-transform: capitalize;
   color: #000;
+}
+
+.cus-alert.success {
+  background-color: green;
+}
+
+.link {
+  font-size: smaller;
+  color: #f16624;
+}
+
+.link:hover {
+  color: #f16624;
+  text-decoration: underline;
 }
 /*# sourceMappingURL=main.css.map */

@@ -4,6 +4,7 @@ import "../../../assets/admin/main.css";
 import { connect } from "react-redux";
 import { recover } from "../../../actions/auth";
 import Alert from "../layout/Alert";
+import Title from "../layout/Title";
 
 document.title = "Recover Password - Pasal Admin";
 
@@ -25,6 +26,7 @@ const Forgot = ({ recover }) => {
 
   return (
     <Fragment>
+      <Title title="Frgot Password - Pasal" />
       <div className="login__row">
         {/* Login Form For Admin */}
         <div className="form__part">

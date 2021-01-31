@@ -4,6 +4,7 @@ import "../../../assets/admin/main.css";
 import { connect } from "react-redux";
 import { newpswd } from "../../../actions/auth";
 import Alert from "../layout/Alert";
+import Title from "../layout/Title";
 
 document.title = "Recover Password - Pasal Admin";
 
@@ -30,6 +31,7 @@ const Newpassword = ({ newpswd, match }) => {
 
   return (
     <Fragment>
+      <Title title="New Password - Pasal" />
       <div className="login__row">
         {/* Login Form For Admin */}
         <div className="form__part">

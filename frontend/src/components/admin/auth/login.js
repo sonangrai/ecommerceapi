@@ -5,6 +5,7 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../../actions/auth";
 import Title from "../layout/Title";
+import Alert from "../layout/Alert";
 
 const Login = ({ login, isAuthenticated }) => {
   const [data, setdata] = useState({
@@ -60,7 +61,7 @@ const Login = ({ login, isAuthenticated }) => {
                 <button type="submit">Login</button>
               </div>
             </form>
-            <Link className="" to="/admin/forgot">
+            <Link className="link" to="/admin/forgot">
               Forgot Password
             </Link>
           </div>
@@ -72,6 +73,7 @@ const Login = ({ login, isAuthenticated }) => {
           />
         </div>
       </div>
+      <Alert />
     </Fragment>
   );
 };

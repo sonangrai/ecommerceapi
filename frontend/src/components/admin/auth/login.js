@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
 import "../../../assets/admin/main.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { login } from "../../../actions/auth";
 
 document.title = "Login - Pasal Admin";
 
-const Login = ({ login }) => {
+const Login = ({ login, isAuthenticated }) => {
   const [data, setdata] = useState({
     email: "",
     password: "",
@@ -23,6 +23,10 @@ const Login = ({ login }) => {
     e.preventDefault();
     login(email, password);
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/admin" />;
+  }
 
   return (
     <Fragment>

@@ -51,6 +51,7 @@ export default function authreducer(state = initialState, action) {
       };
     case types.LOGOUT:
       localStorage.removeItem("token");
+      localStorage.removeItem("userid");
       return {
         ...state,
         token: null,

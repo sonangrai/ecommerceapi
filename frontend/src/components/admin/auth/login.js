@@ -4,8 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { login } from "../../../actions/auth";
-
-document.title = "Login - Pasal Admin";
+import Title from "../layout/Title";
 
 const Login = ({ login, isAuthenticated }) => {
   const [data, setdata] = useState({
@@ -30,6 +29,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
+      <Title title="Login - Pasal Admin" />
       <div className="login__row">
         {/* Login Form For Admin */}
         <div className="form__part">

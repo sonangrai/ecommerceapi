@@ -117,3 +117,9 @@ export const newpswd = (password, repassword, uid, tid) => async (dispatch) => {
     });
   }
 };
+
+// Logout / Clear Profile
+export const logout = () => (dispatch) => {
+  dispatch({ type: types.CLEAR_PROFILE });
+  dispatch({ type: types.LOGOUT });
+};

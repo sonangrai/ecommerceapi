@@ -5,6 +5,7 @@ import { setAlert } from "./alert";
 //Logging in Request
 export const login = (email, password) => async (dispatch) => {
   var jdata = JSON.stringify({ email, password });
+  console.log(jdata);
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -25,6 +26,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch({
       type: types.LOGIN_FAIL,
     });
+    console.log(errors);
   }
 };
 

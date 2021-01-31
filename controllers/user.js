@@ -204,7 +204,7 @@ exports.newpswd = async (req, res) => {
     let user = await User.findById(req.params.userid);
 
     user = await User.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.params.userid },
       { $set: userFields },
       { new: true }
     );

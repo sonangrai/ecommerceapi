@@ -6,6 +6,16 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
+//Returning logged user info
+exports.getinfo = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.send(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //Returning all the admin users
 exports.alladmin = async (req, res) => {
   try {

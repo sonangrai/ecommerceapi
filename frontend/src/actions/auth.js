@@ -40,7 +40,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await Axios.get("/api/auth");
+    const res = await Axios.get("/api/user/");
 
     dispatch({
       type: types.USER_LOADED,

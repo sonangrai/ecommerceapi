@@ -8,7 +8,11 @@ const {
   changepswd,
   recover,
   newpswd,
+  getinfo,
 } = require("../controllers/user");
+
+//Get All User
+router.get("/user/:id", getinfo);
 
 //Get All User
 router.get("/user", alluser);

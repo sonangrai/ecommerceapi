@@ -17,7 +17,7 @@ export const login = (email, password) => async (dispatch) => {
       type: types.LOGIN_SUCCESS,
       payload: res.data,
     });
-    dispatch(loadUser());
+    dispatch(loadUser(res.data.id));
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {
@@ -32,7 +32,7 @@ export const login = (email, password) => async (dispatch) => {
 
 //Loading User
 // Load User
-export const loadUser = () => async (dispatch) => {
+export const loadUser = (id) => async (dispatch) => {
   if (localStorage.token) {
     Axios.defaults.headers.common["x-auth-token"] = localStorage.token;
   } else {
@@ -40,7 +40,7 @@ export const loadUser = () => async (dispatch) => {
   }
 
   try {
-    const res = await Axios.get("/api/user/");
+    const res = await Axios.get(`/api/user/${id}`);
 
     dispatch({
       type: types.USER_LOADED,

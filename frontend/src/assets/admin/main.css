@@ -309,6 +309,7 @@
 
 .dash__row .maincontent__part .header .head__item a {
   color: #f16624;
+  text-transform: capitalize;
 }
 
 .dash__row .maincontent__part .contents__box {

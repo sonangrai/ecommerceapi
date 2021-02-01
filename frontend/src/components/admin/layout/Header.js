@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { logout } from "../../../actions/auth";
 import { connect } from "react-redux";
 
-const Header = ({ logout, user }) => {
+const Header = ({ logout, auth }) => {
   return (
     <Fragment>
       <div className="header">
         <div className="head__item">
           <div className="notification">
-            <Link to="/">{user.firstname}</Link>
+            <Link to="/">{auth.loading === false && auth.user.firstname}</Link>
           </div>
         </div>
         <div className="head__item">
@@ -66,7 +66,7 @@ const Header = ({ logout, user }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { logout })(Header);

@@ -28,6 +28,7 @@ export default function authreducer(state = initialState, action) {
     case types.REGISTER_SUCCESS:
     case types.LOGIN_SUCCESS:
       localStorage.setItem("token", payload.token);
+      localStorage.setItem("userid", payload.id);
       return {
         ...state,
         ...payload,
@@ -43,6 +44,7 @@ export default function authreducer(state = initialState, action) {
       };
     case types.ACCOUNT_DELETED:
       localStorage.removeItem("token");
+      localStorage.removeItem("userid");
       return {
         ...state,
         token: null,

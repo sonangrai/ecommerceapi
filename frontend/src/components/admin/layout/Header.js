@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { logout } from "../../../actions/auth";
 import { connect } from "react-redux";
 
-const Header = ({ logout }) => {
+const Header = ({ logout, user }) => {
   return (
     <Fragment>
       <div className="header">
         <div className="head__item">
           <div className="notification">
-            <Link to="/">Sonang</Link>
+            <Link to="/">{user.firstname}</Link>
           </div>
         </div>
         <div className="head__item">

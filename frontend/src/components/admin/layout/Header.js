@@ -9,7 +9,7 @@ const Header = ({ logout, auth }) => {
       <div className="header">
         <div className="head__item">
           <div className="notification">
-            <Link to="/">{auth.loading === false && auth.user.firstname}</Link>
+            <Link to="/admin/profile">{auth.user && auth.user.firstname}</Link>
           </div>
         </div>
         <div className="head__item">

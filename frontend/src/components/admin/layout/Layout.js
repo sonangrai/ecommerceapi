@@ -8,6 +8,7 @@ import Home from "../Home";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import login from "../auth/Login";
+import Profile from "../auth/Profile";
 
 const Layout = ({ isAuthenticated }) => {
   return (
@@ -22,6 +23,7 @@ const Layout = ({ isAuthenticated }) => {
             <div className="contents__box">
               <Switch>
                 <Route exact path="/admin" component={Home} />
+                <Route exact path="/admin/profile" component={Profile} />
               </Switch>
             </div>
             <Footer />

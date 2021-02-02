@@ -5,15 +5,9 @@ import Notfound from "./Notfound";
 import Forgot from "./auth/Forgot";
 import Newpassword from "./auth/Newpassword";
 
-import Footer from "./layout/Footer";
-import Sidebar from "./layout/Sidebar";
-import Header from "./layout/Header";
-import Home from "./Home";
+import index from "./layout/index";
 
-import { connect } from "react-redux";
-import Profile from "./auth/Profile";
-
-const routes = ({ isAuthenticated }) => {
+const routes = () => {
   return (
     <Fragment>
       <Router>
@@ -25,25 +19,7 @@ const routes = ({ isAuthenticated }) => {
             path="/admin/recover/:uid/:tid"
             component={Newpassword}
           />
-          {isAuthenticated ? (
-            <div className="dash__row">
-              <div className="sidebar__part">
-                <Sidebar />
-              </div>
-              <div className="maincontent__part">
-                <Header />
-                <div className="contents__box">
-                  <Switch>
-                    <Route exact path="/admin" component={Home} />
-                    <Route exact path="/admin/profile" component={Profile} />
-                  </Switch>
-                </div>
-                <Footer />
-              </div>
-            </div>
-          ) : (
-            <Route component={login} />
-          )}
+          <Route component={index} />
           <Route component={Notfound} />
         </Switch>
       </Router>
@@ -51,8 +27,4 @@ const routes = ({ isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps)(routes);
+export default routes;

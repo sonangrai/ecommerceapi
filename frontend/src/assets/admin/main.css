@@ -884,13 +884,6 @@ html {
   text-rendering: optimizelegibility;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 .col {
   text-align: center;
 }
@@ -909,6 +902,85 @@ body {
   font-size: 0.95em;
   font-weight: 300;
   line-height: 7em;
+}
+
+.profile__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.profile__row .tab__bar {
+  width: 20%;
+  border-right: 1px solid #e0ddda;
+}
+
+.profile__row .tab__bar .tab__item {
+  border-bottom: 1px solid #e0ddda;
+  padding: 0.8em;
+  font-weight: 600;
+  color: #857d7d;
+  cursor: pointer;
+}
+
+.profile__row .tab__bar .tab__item .active {
+  color: #000;
+}
+
+.profile__row .tab__bar .tab__item span {
+  display: block;
+}
+
+.profile__row .info__bar {
+  width: 80%;
+  position: relative;
+}
+
+.profile__row .info__bar .active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.profile__row .info__bar > div {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.profile__row .view__cnt {
+  padding: 1em;
+}
+
+.profile__row .view__cnt h3 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.profile__row .view__cnt .view__item {
+  margin-bottom: 1em;
+}
+
+.profile__row .view__cnt .view__item label {
+  width: 100%;
+  font-size: 0.82m;
+  color: #857d7d;
+}
+
+.profile__row .view__cnt .view__item input {
+  width: 300px;
+  border: 1px solid #f16624;
+  padding: 0.2em 0.8em;
+  text-transform: capitalize;
+}
+
+.profile__row .view__cnt .view__item input:focus {
+  background-color: #e0ddda;
 }
 
 body {
@@ -954,5 +1026,9 @@ button {
 .link:hover {
   color: #f16624;
   text-decoration: underline;
+}
+
+.min-height {
+  min-height: 80vh;
 }
 /*# sourceMappingURL=main.css.map */

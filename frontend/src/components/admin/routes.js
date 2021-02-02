@@ -6,6 +6,7 @@ import Forgot from "./auth/Forgot";
 import Newpassword from "./auth/Newpassword";
 
 import index from "./layout/index";
+import "../../assets/admin/main.css";
 
 const routes = () => {
   return (

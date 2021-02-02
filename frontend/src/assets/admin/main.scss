@@ -7,6 +7,7 @@
 @import "./pages/login";
 @import "./pages/layout";
 @import "./pages/404";
+@import "./pages/profile";
 
 body {
   font-family: "Noto Sans", sans-serif;
@@ -48,4 +49,8 @@ button {
     color: $primary-color;
     text-decoration: underline;
   }
+}
+
+.min-height {
+  min-height: 80vh;
 }

@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import "../../../assets/admin/main.css";
 import { Link, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";

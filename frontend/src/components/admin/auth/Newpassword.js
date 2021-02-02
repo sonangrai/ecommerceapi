@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import "../../../assets/admin/main.css";
 
 import { connect } from "react-redux";
 import { newpswd } from "../../../actions/auth";

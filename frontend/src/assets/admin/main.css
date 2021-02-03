@@ -1031,4 +1031,10 @@ button {
 .min-height {
   min-height: 80vh;
 }
+
+.primary-btn {
+  background-color: #f16624;
+  border: 0;
+  color: #fff;
+}
 /*# sourceMappingURL=main.css.map */

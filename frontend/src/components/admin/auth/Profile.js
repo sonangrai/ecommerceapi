@@ -5,6 +5,8 @@ import Loader from "../layout/Loader";
 import Editprofile from "./Editprofile";
 import Viewprofile from "./Viewprofile";
 
+import Title from "../layout/Title";
+
 const Profile = ({ user }) => {
   const [active, setactive] = useState("view_profile");
 
@@ -19,6 +21,7 @@ const Profile = ({ user }) => {
       {user ? (
         <>
           <div className="profile__row min-height">
+            <Title title="Profile - Pasal" />
             <div className="tab__bar">
               <div className="tab__item ">
                 <span

@@ -1116,7 +1116,7 @@ button {
 }
 
 .cus-alert.success {
-  background-color: green;
+  background-color: #27a027 !important;
 }
 
 .link {

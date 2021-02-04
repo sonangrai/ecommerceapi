@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Loader from "../layout/Loader";
 import Editprofile from "./Editprofile";
 import Viewprofile from "./Viewprofile";
+import Alert from "../layout/Alert";
 
 import { Helmet } from "react-helmet";
 
@@ -65,6 +66,7 @@ const Profile = ({ user }) => {
       ) : (
         <Loader />
       )}
+      <Alert />
     </Fragment>
   );
 };

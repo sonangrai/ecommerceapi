@@ -2,8 +2,9 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Loader from "../layout/Loader";
+import { updateinfo } from "../../../actions/user";
 
-const Editprofile = ({ user }) => {
+const Editprofile = ({ user, updateinfo }) => {
   const [data, setdata] = useState({
     firstname: "",
     lastname: "",
@@ -20,7 +21,7 @@ const Editprofile = ({ user }) => {
   //Form Submit
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(data);
+    updateinfo(data);
   };
 
   return (
@@ -91,4 +92,4 @@ const mapStateToProps = (state) => ({
   user: state.auth.user,
 });
 
-export default connect(mapStateToProps)(Editprofile);
+export default connect(mapStateToProps, { updateinfo })(Editprofile);

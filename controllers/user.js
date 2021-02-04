@@ -104,7 +104,9 @@ exports.changepswd = async (req, res) => {
     const isMatch = await bcrypt.compare(oldpassword, user.password);
 
     if (!isMatch) {
-      return res.status(400).send("Password Dont Match");
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "Old Password is not Correct" }] });
     }
 
     user = await User.findOneAndUpdate(

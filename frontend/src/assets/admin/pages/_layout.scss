@@ -27,10 +27,11 @@
       .menu__box {
         margin: 2em 0;
         .menu__item {
-          margin: 1em 0;
-          padding: 0 1em;
           a {
             color: #fff;
+            display: block;
+            margin: 1em 0;
+            padding: 0 1em;
             svg {
               fill: #fff;
               width: 30px;
@@ -38,11 +39,11 @@
               margin-right: 1em;
             }
           }
-        }
-        .menu__item.active {
-          border-left: 4px solid #fff;
-          a {
-            font-weight: $heavy-weight;
+          .active {
+            border-left: 4px solid #fff;
+            a {
+              font-weight: $heavy-weight;
+            }
           }
         }
       }

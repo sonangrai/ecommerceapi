@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import Home from "../Home";
 import Profile from "../auth/Profile";
 import Login from "../auth/Login";
+import Index from "../products/Index";
 
 const index = ({ isAuthenticated }) => {
   return (
@@ -21,8 +22,9 @@ const index = ({ isAuthenticated }) => {
             <Header />
             <div className="contents__box">
               <Switch>
-                <Route exact path="/admin" component={Home} />
+                <Route exact path="/admin/home" component={Home} />
                 <Route exact path="/admin/profile" component={Profile} />
+                <Route exact path="/admin/product" component={Index} />
               </Switch>
             </div>
             <Footer />

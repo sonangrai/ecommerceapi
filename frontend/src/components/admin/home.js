@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
 import Loader from "./layout/Loader";
-import Title from "./layout/Title";
 
 const Home = () => {
   return (
     <Fragment>
-      <Title title="Dashboard - Pasal" />
+      <Helmet>
+        <title>Dashboard - Pasal</title>
+      </Helmet>
       <Loader />
     </Fragment>
   );

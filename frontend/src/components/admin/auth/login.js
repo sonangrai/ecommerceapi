@@ -3,8 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { login } from "../../../actions/auth";
-import Title from "../layout/Title";
 import Alert from "../layout/Alert";
+import { Helmet } from "react-helmet";
 
 const Login = ({ login, isAuthenticated }) => {
   const [data, setdata] = useState({
@@ -29,7 +29,9 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <Title title="Login - Pasal Admin" />
+      <Helmet>
+        <title>Login - Pasal Admin</title>
+      </Helmet>
       <div className="login__row">
         {/* Login Form For Admin */}
         <div className="form__part">

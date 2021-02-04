@@ -1,5 +1,6 @@
 .profile__row {
   @include full-flexer;
+  min-height: 80vh;
   .tab__bar {
     width: 20%;
     border-right: 1px solid $light-color;
@@ -54,6 +55,36 @@
         &:focus {
           background-color: $light-color;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile__row {
+    .tab__bar {
+      width: 30%;
+    }
+    .info__bar {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .dash__row .maincontent__part .contents__box {
+    padding: 0.5em;
+    .profile__row {
+      .info__bar {
+        width: 100%;
+      }
+      .tab__bar {
+        width: 100%;
+        border: 0;
+        display: flex;
+      }
+      .view__cnt .view__item input {
+        width: 100%;
       }
     }
   }

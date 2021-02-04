@@ -3,9 +3,7 @@ import React, { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { newpswd } from "../../../actions/auth";
 import Alert from "../layout/Alert";
-import Title from "../layout/Title";
-
-document.title = "Recover Password - Pasal Admin";
+import { Helmet } from "react-helmet";
 
 const Newpassword = ({ newpswd, match }) => {
   const [data, setdata] = useState({
@@ -30,7 +28,9 @@ const Newpassword = ({ newpswd, match }) => {
 
   return (
     <Fragment>
-      <Title title="New Password - Pasal" />
+      <Helmet>
+        <title>Recover Password - Pasal Admin</title>
+      </Helmet>
       <div className="login__row">
         {/* Login Form For Admin */}
         <div className="form__part">

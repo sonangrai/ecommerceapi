@@ -5,7 +5,7 @@ import Loader from "../layout/Loader";
 import Editprofile from "./Editprofile";
 import Viewprofile from "./Viewprofile";
 
-import Title from "../layout/Title";
+import { Helmet } from "react-helmet";
 
 const Profile = ({ user }) => {
   const [active, setactive] = useState("view_profile");
@@ -19,9 +19,11 @@ const Profile = ({ user }) => {
   return (
     <Fragment>
       {user ? (
-        <>
-          <div className="profile__row min-height">
-            <Title title="Profile - Pasal" />
+        <div className="min-height">
+          <Helmet>
+                    <title>{user.firstname} - Profile</title>     
+          </Helmet>
+          <div className="profile__row ">
             <div className="tab__bar">
               <div className="tab__item ">
                 <span
@@ -59,7 +61,7 @@ const Profile = ({ user }) => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <Loader />
       )}

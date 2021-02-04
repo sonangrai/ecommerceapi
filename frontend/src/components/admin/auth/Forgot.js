@@ -1,11 +1,9 @@
 import React, { Fragment, useState } from "react";
+import { Helmet } from "react-helmet";
 
 import { connect } from "react-redux";
 import { recover } from "../../../actions/auth";
 import Alert from "../layout/Alert";
-import Title from "../layout/Title";
-
-document.title = "Recover Password - Pasal Admin";
 
 const Forgot = ({ recover }) => {
   const [data, setdata] = useState({
@@ -25,8 +23,10 @@ const Forgot = ({ recover }) => {
 
   return (
     <Fragment>
-      <Title title="Frgot Password - Pasal" />
       <div className="login__row">
+        <Helmet>
+          <title>Recover Password - Pasal Admin</title>
+        </Helmet>
         {/* Login Form For Admin */}
         <div className="form__part">
           <div className="cont">

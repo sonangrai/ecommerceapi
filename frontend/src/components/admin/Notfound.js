@@ -1,8 +1,12 @@
 import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
 
 const Notfound = () => {
   return (
     <Fragment>
+      <Helmet>
+        <title>Not Found- Pasal</title>
+      </Helmet>
       <svg id="robot" version="1.1" x="0" y="0" width="320px" height="300px">
         <rect
           x="59.722"

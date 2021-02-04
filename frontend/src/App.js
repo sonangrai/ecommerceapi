@@ -3,6 +3,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { loadUser } from "./actions/auth";
+import { Helmet } from "react-helmet";
 
 //Routes Import
 import routes from "./components/routes";
@@ -18,6 +19,9 @@ function App() {
 
   return (
     <Fragment>
+      <Helmet>
+                <title>Pasal</title>     
+      </Helmet>
       <Provider store={store}>
         <Router>
           <Switch>

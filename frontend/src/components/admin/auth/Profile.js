@@ -7,6 +7,7 @@ import Viewprofile from "./Viewprofile";
 import Alert from "../layout/Alert";
 
 import { Helmet } from "react-helmet";
+import Changepassword from "./Changepassword";
 
 const Profile = ({ user }) => {
   const [active, setactive] = useState("view_profile");
@@ -44,6 +45,15 @@ const Profile = ({ user }) => {
                   Edit Profile
                 </span>
               </div>
+              <div className="tab__item">
+                <span
+                  id="change_password"
+                  className={active === "change_password" ? "active" : ""}
+                  onClick={change}
+                >
+                  Change Password
+                </span>
+              </div>
             </div>
             <div className="info__bar">
               <div
@@ -59,6 +69,13 @@ const Profile = ({ user }) => {
                 }
               >
                 <Editprofile />
+              </div>
+              <div
+                className={
+                  active === "change_password" ? "change_password active" : ""
+                }
+              >
+                <Changepassword />
               </div>
             </div>
           </div>

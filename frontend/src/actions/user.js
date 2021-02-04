@@ -1,12 +1,12 @@
 import * as types from "./types";
 import Axios from "axios";
-import { loadUser } from "./auth";
+import { loadUser, logout } from "./auth";
 import { setAlert } from "./alert";
 
+//Updating Info
 export const updateinfo = (data) => async (dispatch) => {
   var id = localStorage.getItem("userid");
   var jdata = JSON.stringify(data);
-  console.log(jdata);
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -28,6 +28,34 @@ export const updateinfo = (data) => async (dispatch) => {
     dispatch({
       type: types.UPDATE_PROFILE_FAIL,
     });
-    console.log(errors);
+  }
+};
+
+//Changing Password
+export const changepsswd = (oldpassword, password) => async (dispatch) => {
+  var jdata = JSON.stringify({ oldpassword, password });
+  var id = localStorage.getItem("userid");
+
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  try {
+    await Axios.put(`/api/password/${id}`, jdata, config);
+    dispatch({
+      type: types.PASSWORD_CHANGED,
+    });
+    dispatch(setAlert("Password Updated! Please Login again", "success"));
+    dispatch(logout());
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+    dispatch({
+      type: types.PASSWORD_CHANGE_FAIL,
+    });
   }
 };

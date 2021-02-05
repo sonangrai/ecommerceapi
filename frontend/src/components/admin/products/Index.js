@@ -20,7 +20,7 @@ const Index = ({ user }) => {
         <Helmet>
                   <title>Product - Pasal</title>     
         </Helmet>
-        <div className="profile__row ">
+        <div className="main__row ">
           <div className="tab__bar">
             <div className="tab__item ">
               <span

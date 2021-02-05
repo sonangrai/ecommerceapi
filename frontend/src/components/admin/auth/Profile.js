@@ -25,7 +25,7 @@ const Profile = ({ user }) => {
           <Helmet>
                     <title>{user.firstname} - Profile</title>     
           </Helmet>
-          <div className="profile__row ">
+          <div className="main__row ">
             <div className="tab__bar">
               <div className="tab__item ">
                 <span

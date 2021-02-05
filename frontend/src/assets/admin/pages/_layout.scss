@@ -95,6 +95,68 @@
   }
 }
 
+.main__row {
+  @include full-flexer;
+  min-height: 80vh;
+  .tab__bar {
+    width: 20%;
+    border-right: 1px solid $light-color;
+    .tab__item {
+      border-bottom: 1px solid $light-color;
+      padding: 0.8em;
+      font-weight: $heavy-weight;
+      color: $dark-text;
+      cursor: pointer;
+      .active {
+        color: #000;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+  .info__bar {
+    width: 80%;
+    position: relative;
+    .active {
+      visibility: visible;
+      opacity: 1;
+    }
+    > div {
+      transition: $slow-ease;
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .view__cnt {
+    padding: 1em;
+    h3 {
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+    .view__item {
+      margin-bottom: 1em;
+      label {
+        width: 100%;
+        font-size: 0.82m;
+        color: $dark-text;
+      }
+      input {
+        width: 300px;
+        border: 1px solid $primary-color;
+        padding: 0.2em 0.8em;
+        text-transform: capitalize;
+        &:focus {
+          background-color: $light-color;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .dash__row {
     .sidebar__part {
@@ -147,6 +209,14 @@
 }
 
 @media screen and (max-width: 768px) {
+  .profile__row {
+    .tab__bar {
+      width: 30%;
+    }
+    .info__bar {
+      width: 70%;
+    }
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -164,6 +234,22 @@
     .menu__box .menu__item a svg {
       width: 20px;
       height: 20px;
+    }
+  }
+  .dash__row .maincontent__part .contents__box {
+    padding: 0.5em;
+    .profile__row {
+      .info__bar {
+        width: 100%;
+      }
+      .tab__bar {
+        width: 100%;
+        border: 0;
+        display: flex;
+      }
+      .view__cnt .view__item input {
+        width: 100%;
+      }
     }
   }
 }

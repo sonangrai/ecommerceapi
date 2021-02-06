@@ -47,7 +47,7 @@ export const loadUser = (id) => async (dispatch) => {
     });
   } catch (err) {
     dispatch({
-      type: types.AUTH_ERROR,
+      type: types.USER_LOADED_FAIL,
     });
   }
 };

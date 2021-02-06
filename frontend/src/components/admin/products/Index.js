@@ -1,11 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
 import Alert from "../layout/Alert";
 
 import { Helmet } from "react-helmet";
 import Viewproducts from "./Viewproducts";
 
-const Index = ({ user }) => {
+const Index = () => {
   const [active, setactive] = useState("view_product");
 
   //Switcher
@@ -41,15 +40,9 @@ const Index = ({ user }) => {
           </div>
         </div>
       </div>
-
       <Alert />
     </Fragment>
   );
 };
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-  user: state.auth.user,
-});
-
-export default connect(mapStateToProps)(Index);
+export default Index;

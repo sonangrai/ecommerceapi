@@ -369,6 +369,7 @@
   left: 15%;
   width: 84%;
   background: #fff;
+  z-index: 99;
 }
 
 .dash__row .maincontent__part .header .head__item {

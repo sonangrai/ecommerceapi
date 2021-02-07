@@ -8,6 +8,7 @@ export const allproduct = () => async (dispatch) => {
     const res = await Axios.get("/api/product");
     dispatch({
       type: types.ALL_PRODUCT_LOADED,
+      payload: res.data,
     });
     return res.data;
   } catch (err) {

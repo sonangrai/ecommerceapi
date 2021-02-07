@@ -156,6 +156,39 @@
   }
 }
 
+.tbl__cont {
+  overflow-x: scroll;
+}
+
+.tbl__cont .tbl {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tbl__cont .tbl thead tr {
+  border-bottom: 1px solid #e0ddda;
+}
+
+.tbl__cont .tbl thead tr th {
+  text-transform: uppercase;
+}
+
+.tbl__cont .tbl tbody tr {
+  border-bottom: 1px solid #e0ddda;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.tbl__cont .tbl tbody tr td {
+  text-transform: capitalize;
+  padding: 0.5em;
+}
+
+.tbl__cont .tbl tbody tr:hover {
+  background-color: #e0ddda;
+}
+
 .login__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1078,6 +1111,10 @@ html {
   font-size: 0.95em;
   font-weight: 300;
   line-height: 7em;
+}
+
+.view_product {
+  width: 100%;
 }
 
 body {

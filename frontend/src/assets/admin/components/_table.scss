@@ -1,0 +1,29 @@
+.tbl__cont {
+  overflow-x: scroll;
+  .tbl {
+    width: 100%;
+    table-layout: fixed;
+    thead {
+      tr {
+        border-bottom: 1px solid $light-color;
+        th {
+          text-transform: uppercase;
+        }
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid $light-color;
+        transition: $slow-ease;
+        cursor: pointer;
+        td {
+          text-transform: capitalize;
+          padding: 0.5em;
+        }
+        &:hover {
+          background-color: $light-color;
+        }
+      }
+    }
+  }
+}

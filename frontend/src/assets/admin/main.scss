@@ -3,11 +3,13 @@
 @import "../common/variables";
 @import "../common/mixins";
 @import "../common/animation";
-@import "./pages/animation";
+@import "./components/animation";
+@import "./components/table";
 @import "./pages/login";
 @import "./pages/layout";
 @import "./pages/404";
 @import "./pages/profile";
+@import "./pages/product";
 
 body {
   font-family: "Noto Sans", sans-serif;

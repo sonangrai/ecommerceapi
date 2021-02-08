@@ -1,0 +1,4 @@
+.search__box {
+  padding: 1em;
+  @include flexer(flex-end, center);
+}

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { allproduct } from "../../../actions/product";
 import Loader from "../layout/Loader";
@@ -7,9 +7,12 @@ import Search from "../common/Search";
 import Table from "../common/Table";
 
 const Viewproducts = ({ allproduct, product }) => {
+  const [row, setrow] = useState([]);
+
   useEffect(() => {
     allproduct();
-  }, [allproduct]);
+    setrow(product);
+  }, [allproduct, product]);
 
   const columns = [
     "SNo",
@@ -31,22 +34,29 @@ const Viewproducts = ({ allproduct, product }) => {
     "invamount",
   ];
 
+  //Getting Filtered Data from Search
+  const returnfilterdata = (fdata) => {
+    setrow(fdata);
+  };
+
   return (
     <Fragment>
-      <div className="search__box">
-        <Search />
-      </div>
-      {product ? (
-        <div className="view__cnt">
-          <div className="tbl__cont">
-            <Table
-              column={columns}
-              data={product}
-              dataindex={dataindex}
-              to="product"
-            />
+      {row ? (
+        <>
+          <div className="search__box">
+            <Search row={row} returnfilterdata={returnfilterdata} />
           </div>
-        </div>
+          <div className="view__cnt">
+            <div className="tbl__cont">
+              <Table
+                column={columns}
+                row={row}
+                dataindex={dataindex}
+                to="product"
+              />
+            </div>
+          </div>
+        </>
       ) : (
         <Loader />
       )}

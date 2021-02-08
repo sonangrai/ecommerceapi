@@ -1,20 +1,28 @@
 import React, { Fragment, useState } from "react";
 
-const Search = () => {
+const Search = ({ row, returnfilterdata }) => {
   const [query, setquery] = useState("");
+  const [filterdata, setfilterdata] = useState("");
 
   //Handle Change
   const onChange = (e) => {
     setquery(e.target.value);
-    console.log(e.target.value);
+    const da = row.filter((row) => row.name.indexOf(query) !== -1);
+    setfilterdata(da);
+  };
+
+  //Submit
+  const onSubmit = (e) => {
+    e.preventDefault();
+    returnfilterdata(filterdata);
   };
 
   return (
     <Fragment>
       <div className="tbl__search">
-        <form>
+        <form onSubmit={onSubmit}>
           <input onChange={onChange} value={query} type="text" />
-          <button>Search</button>
+          <button type="submit">Search</button>
         </form>
       </div>
     </Fragment>

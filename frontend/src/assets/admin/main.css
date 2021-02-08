@@ -189,6 +189,37 @@
   background-color: #e0ddda;
 }
 
+@media screen and (max-width: 1200px) {
+  .tbl__cont .tbl {
+    width: 1024px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .tbl__cont .tbl {
+    width: 992px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tbl__cont .tbl {
+    width: 800px;
+  }
+}
+
+.search__box {
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .login__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -598,17 +629,20 @@
   .dash__row .maincontent__part .contents__box {
     padding: 0.5em;
   }
-  .dash__row .maincontent__part .contents__box .profile__row .info__bar {
+  .dash__row .maincontent__part .contents__box .main__row {
+    min-height: unset;
+  }
+  .dash__row .maincontent__part .contents__box .main__row .info__bar {
     width: 100%;
   }
-  .dash__row .maincontent__part .contents__box .profile__row .tab__bar {
+  .dash__row .maincontent__part .contents__box .main__row .tab__bar {
     width: 100%;
     border: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .dash__row .maincontent__part .contents__box .profile__row .view__cnt .view__item input {
+  .dash__row .maincontent__part .contents__box .main__row .view__cnt .view__item input {
     width: 100%;
   }
 }

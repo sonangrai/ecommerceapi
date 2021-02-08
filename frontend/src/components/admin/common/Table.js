@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ column, data, dataindex, to }) => {
+const Table = ({ column, row, dataindex, to }) => {
   return (
     <Fragment>
       <table className="tbl">
@@ -13,7 +13,7 @@ const Table = ({ column, data, dataindex, to }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((prod, i) => (
+          {row.map((prod, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
               {dataindex.map((datai, ix) => (

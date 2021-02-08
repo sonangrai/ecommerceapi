@@ -27,3 +27,25 @@
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .tbl__cont {
+    .tbl {
+      width: 1024px;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .tbl__cont {
+    .tbl {
+      width: 992px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .tbl__cont {
+    .tbl {
+      width: 800px;
+    }
+  }
+}

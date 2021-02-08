@@ -239,7 +239,8 @@
   }
   .dash__row .maincontent__part .contents__box {
     padding: 0.5em;
-    .profile__row {
+    .main__row {
+      min-height: unset;
       .info__bar {
         width: 100%;
       }

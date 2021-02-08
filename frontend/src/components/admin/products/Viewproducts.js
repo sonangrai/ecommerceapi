@@ -18,8 +18,17 @@ const Viewproducts = ({ allproduct, product }) => {
     "Category",
     "Subcategory",
     "Rate",
-    "Inventory Amounr",
+    "Inventory Amount",
     "Actions",
+  ];
+
+  const dataindex = [
+    "name",
+    "color",
+    "category",
+    "subcategory",
+    "rate",
+    "invamount",
   ];
 
   return (
@@ -30,7 +39,12 @@ const Viewproducts = ({ allproduct, product }) => {
       {product ? (
         <div className="view__cnt">
           <div className="tbl__cont">
-            <Table column={columns} data={product} />
+            <Table
+              column={columns}
+              data={product}
+              dataindex={dataindex}
+              to="product"
+            />
           </div>
         </div>
       ) : (

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-const Table = ({ column, data }) => {
+const Table = ({ column, data, dataindex, to }) => {
   return (
     <Fragment>
       <table className="tbl">
@@ -16,14 +16,11 @@ const Table = ({ column, data }) => {
           {data.map((prod, i) => (
             <tr key={i}>
               <td>{i + 1}</td>
-              <td>{prod.name}</td>
-              <td>{prod.color}</td>
-              <td>{prod.category}</td>
-              <td>{prod.subcategory}</td>
-              <td>{prod.rate}</td>
-              <td>{prod.invamount}</td>
+              {dataindex.map((datai, ix) => (
+                <td key={ix}>{prod[datai]}</td>
+              ))}
               <td>
-                <Link className="btn primary-btn" to={`/product/${prod._id}`}>
+                <Link className="btn primary-btn" to={`/${to}/${prod._id}`}>
                   View
                 </Link>
               </td>

@@ -1,5 +1,4 @@
 .dash__row {
-  @include full-flexer;
   height: 100vh;
   .sidebar__part {
     width: 15%;
@@ -52,13 +51,16 @@
   .maincontent__part {
     width: 85%;
     margin-left: 15%;
+    position: fixed;
+    height: 100%;
     .header {
       @include flexer(flex-end, center);
       padding: 0.8em 0;
       box-shadow: 0px -1px 10px -5px;
       position: fixed;
       left: 15%;
-      width: 84%;
+      top: 0;
+      width: 85%;
       background: #fff;
       z-index: 99;
       .head__item {
@@ -88,6 +90,8 @@
     .contents__box {
       padding: 2em;
       margin-top: 3em;
+      min-height: 90vh;
+      overflow-y: scroll;
     }
     .footer {
       text-align: center;
@@ -98,7 +102,6 @@
 
 .main__row {
   @include full-flexer;
-  min-height: 80vh;
   .tab__bar {
     width: 20%;
     border-right: 1px solid $light-color;
@@ -145,7 +148,9 @@
         font-size: 0.82m;
         color: $dark-text;
       }
-      input {
+      input,
+      textarea,
+      select {
         width: 300px;
         border: 1px solid $primary-color;
         padding: 0.2em 0.8em;

@@ -3,6 +3,7 @@ import Alert from "../layout/Alert";
 
 import { Helmet } from "react-helmet";
 import Viewproducts from "./Viewproducts";
+import Addproduct from "./Addproduct";
 
 const Index = () => {
   const [active, setactive] = useState("view_product");
@@ -30,12 +31,26 @@ const Index = () => {
                 View Product
               </span>
             </div>
+            <div className="tab__item ">
+              <span
+                id="add_product"
+                className={active === "add_product" ? "active" : ""}
+                onClick={change}
+              >
+                Add Product
+              </span>
+            </div>
           </div>
           <div className="info__bar">
             <div
               className={active === "view_product" ? "view_product active" : ""}
             >
               <Viewproducts />
+            </div>
+            <div
+              className={active === "add_product" ? "add_product active" : ""}
+            >
+              <Addproduct />
             </div>
           </div>
         </div>

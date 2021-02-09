@@ -15,6 +15,7 @@ const Search = ({ row, returnfilterdata }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     returnfilterdata(filterdata);
+    console.log("query", query, "FilteredData", filterdata);
   };
 
   return (

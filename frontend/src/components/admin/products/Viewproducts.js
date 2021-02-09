@@ -36,7 +36,9 @@ const Viewproducts = ({ allproduct, product }) => {
 
   //Getting Filtered Data from Search
   const returnfilterdata = (fdata) => {
-    setrow(fdata);
+    if (fdata.length !== 0) {
+      setrow(fdata);
+    }
   };
 
   return (

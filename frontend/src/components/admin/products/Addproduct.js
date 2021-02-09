@@ -1,9 +1,9 @@
 import React, { Fragment, useState, useEffect } from "react";
-import Alert from "../layout/Alert";
 import { connect } from "react-redux";
 import { getallcategory } from "../../../actions/category";
+import { addproduct } from "../../../actions/product";
 
-const Addproduct = ({ getallcategory, categories }) => {
+const Addproduct = ({ getallcategory, categories, addproduct }) => {
   const [data, setdata] = useState({
     name: "",
     description: "",
@@ -13,6 +13,8 @@ const Addproduct = ({ getallcategory, categories }) => {
     rate: "",
     color: "",
   });
+
+  const [subcat, setsubcat] = useState([]);
 
   const {
     name,
@@ -28,11 +30,30 @@ const Addproduct = ({ getallcategory, categories }) => {
     getallcategory();
   }, [getallcategory]);
 
-  //Submit FOrm
-  const onChange = (e) => {};
+  //COm Change FOrm
+  const onChange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+  };
+
+  //Change of select input type
+  const onChanges = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+    let newsub;
+    //Filling up the Subcategory Select Options
+    categories.map((cat) => {
+      if (cat.categoryname === e.target.value) {
+        newsub = cat.subcategory;
+      }
+      return null;
+    });
+    setsubcat(newsub);
+  };
 
   //Submit FOrm
-  const onSubmit = (e) => {};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addproduct(data);
+  };
 
   return (
     <Fragment>
@@ -54,7 +75,7 @@ const Addproduct = ({ getallcategory, categories }) => {
           {categories && (
             <div className="view__item">
               <label>Category</label>
-              <select name="category" value={category} onChange={onChange}>
+              <select name="category" value={category} onChange={onChanges}>
                 <option value="">Select Category</option>
                 {categories.map((cat) => (
                   <option key={cat._id} value={cat.categoryname}>
@@ -64,12 +85,23 @@ const Addproduct = ({ getallcategory, categories }) => {
               </select>
             </div>
           )}
-          <div className="view__item">
-            <label>Sub Category</label>
-            <select name="subcategory" value={subcategory} onChange={onChange}>
-              <option value="">Select Sub Category</option>
-            </select>
-          </div>
+          {subcat.length !== 0 && (
+            <div className="view__item">
+              <label>Sub Category</label>
+              <select
+                name="subcategory"
+                value={subcategory}
+                onChange={onChange}
+              >
+                <option value="">Select Sub Category</option>
+                {subcat.map((sb, i) => (
+                  <option key={i} value={sb}>
+                    {sb}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <div className="view__item">
             <label>Rate</label>
             <input type="text" name="rate" value={rate} onChange={onChange} />
@@ -94,7 +126,6 @@ const Addproduct = ({ getallcategory, categories }) => {
           </div>
         </form>
       </div>
-      <Alert />
     </Fragment>
   );
 };
@@ -103,4 +134,6 @@ const mapStateToProps = (state) => ({
   categories: state.category.categories,
 });
 
-export default connect(mapStateToProps, { getallcategory })(Addproduct);
+export default connect(mapStateToProps, { getallcategory, addproduct })(
+  Addproduct
+);

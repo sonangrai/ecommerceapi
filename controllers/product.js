@@ -31,13 +31,11 @@ exports.postproduct = async (req, res) => {
   });
 
   try {
-    product.save((err, result) => {
-      if (err) {
-        return res.status(401).json(err);
-      }
-      res.json(result);
-    });
-  } catch (error) {}
+    await product.save();
+    res.json(product);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
 //Getting the Product By Category
@@ -64,7 +62,7 @@ exports.getallproduct = async (req, res) => {
 };
 
 //Updating Product
-exports.postproduct = async (req, res) => {
+exports.updateproduct = async (req, res) => {
   const {
     name,
     description,

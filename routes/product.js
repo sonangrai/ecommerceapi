@@ -3,6 +3,7 @@ const {
   postproduct,
   getallproductbycat,
   getallproduct,
+  updateproduct,
 } = require("../controllers/product");
 const { check } = require("express-validator");
 const router = express.Router();
@@ -25,6 +26,6 @@ router.post(
 );
 
 //Edit the product
-router.put("/product/:pid", postproduct);
+router.put("/product/:pid", updateproduct);
 
 module.exports = router;

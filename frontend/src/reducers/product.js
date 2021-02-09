@@ -12,6 +12,8 @@ export default function product(state = initialstate, action) {
       return { ...state, products: payload, isFetchingProduct: false };
     case types.ALL_PRODUCT_LOADED_FAIL:
       return state;
+    case types.PRODUCT_ADDED:
+      return { ...state, products: [payload, ...state.products] };
     default:
       return state;
   }

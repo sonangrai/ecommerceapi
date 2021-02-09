@@ -51,12 +51,19 @@ const Addproduct = ({ getallcategory, categories }) => {
               onChange={onChange}
             />
           </div>
-          <div className="view__item">
-            <label>Category</label>
-            <select name="category" value={category} onChange={onChange}>
-              <option value="">Select Category</option>
-            </select>
-          </div>
+          {categories && (
+            <div className="view__item">
+              <label>Category</label>
+              <select name="category" value={category} onChange={onChange}>
+                <option value="">Select Category</option>
+                {categories.map((cat) => (
+                  <option key={cat._id} value={cat.categoryname}>
+                    {cat.categoryname}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <div className="view__item">
             <label>Sub Category</label>
             <select name="subcategory" value={subcategory} onChange={onChange}>
@@ -93,7 +100,7 @@ const Addproduct = ({ getallcategory, categories }) => {
 };
 
 const mapStateToProps = (state) => ({
-  categories: state.categories,
+  categories: state.category.categories,
 });
 
 export default connect(mapStateToProps, { getallcategory })(Addproduct);

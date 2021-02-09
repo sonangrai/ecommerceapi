@@ -53,7 +53,7 @@ const Addproduct = () => {
           </div>
           <div className="view__item">
             <label>Sub Category</label>
-            <select name="subcategory" value={category}>
+            <select name="subcategory" value={subcategory}>
               <option value="">Select Sub Category</option>
             </select>
           </div>

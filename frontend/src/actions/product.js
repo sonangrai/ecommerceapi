@@ -25,7 +25,6 @@ export const allproduct = () => async (dispatch) => {
 //Adding the products
 export const addproduct = (data) => async (dispatch) => {
   const jdata = JSON.stringify(data);
-  console.log(jdata);
   const config = {
     headers: {
       "Content-Type": "application/json",

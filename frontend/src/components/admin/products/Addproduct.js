@@ -53,6 +53,20 @@ const Addproduct = ({ getallcategory, categories, addproduct }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     addproduct(data);
+    e.target.reset();
+  };
+
+  //Reset Form
+  const reset = (e) => {
+    setdata({
+      name: "",
+      description: "",
+      category: "",
+      subcategory: "",
+      invamount: "",
+      rate: "",
+      color: "",
+    });
   };
 
   return (
@@ -122,6 +136,9 @@ const Addproduct = ({ getallcategory, categories, addproduct }) => {
           <div className="view__item">
             <button type="submit" className="primary-btn">
               Submit Mail
+            </button>
+            <button type="reset" className="secondary-btn" onClick={reset}>
+              Reset
             </button>
           </div>
         </form>

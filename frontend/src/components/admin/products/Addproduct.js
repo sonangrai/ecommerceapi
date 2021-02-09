@@ -31,7 +31,7 @@ const Addproduct = () => {
   return (
     <Fragment>
       <div className="view__cnt">
-        <h3>Edit Profile</h3>
+        <h3>Add New product</h3>
         <form onSubmit={onSubmit}>
           <div className="view__item">
             <label>Name</label>
@@ -47,13 +47,13 @@ const Addproduct = () => {
           </div>
           <div className="view__item">
             <label>Category</label>
-            <select name="category" value={category}>
+            <select name="category" value={category} onChange={onChange}>
               <option value="">Select Category</option>
             </select>
           </div>
           <div className="view__item">
             <label>Sub Category</label>
-            <select name="subcategory" value={subcategory}>
+            <select name="subcategory" value={subcategory} onChange={onChange}>
               <option value="">Select Sub Category</option>
             </select>
           </div>

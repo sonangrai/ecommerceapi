@@ -1,7 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import Alert from "../layout/Alert";
+import { connect } from "react-redux";
+import { getallcategory } from "../../../actions/category";
 
-const Addproduct = () => {
+const Addproduct = ({ getallcategory, categories }) => {
   const [data, setdata] = useState({
     name: "",
     description: "",
@@ -21,6 +23,10 @@ const Addproduct = () => {
     color,
     invamount,
   } = data;
+
+  useEffect(() => {
+    getallcategory();
+  }, [getallcategory]);
 
   //Submit FOrm
   const onChange = (e) => {};
@@ -86,4 +92,8 @@ const Addproduct = () => {
   );
 };
 
-export default Addproduct;
+const mapStateToProps = (state) => ({
+  categories: state.categories,
+});
+
+export default connect(mapStateToProps, { getallcategory })(Addproduct);

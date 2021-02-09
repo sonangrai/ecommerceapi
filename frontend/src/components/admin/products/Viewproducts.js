@@ -7,12 +7,11 @@ import Search from "../common/Search";
 import Table from "../common/Table";
 
 const Viewproducts = ({ allproduct, product }) => {
-  const [row, setrow] = useState([]);
-
   useEffect(() => {
     allproduct();
-    setrow(product);
-  }, [allproduct, product]);
+  }, [allproduct]);
+
+  const [row, setrow] = useState(product);
 
   const columns = [
     "SNo",

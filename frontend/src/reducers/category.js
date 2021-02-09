@@ -12,7 +12,7 @@ export default function category(state = initialState, action) {
     case types.ALL_CATEGORY_LOADED:
       return {
         ...state,
-        categories: payload.data,
+        categories: payload,
         categoryfetching: false,
       };
     case types.ALL_CATEGORY_LOADED_FAIL:

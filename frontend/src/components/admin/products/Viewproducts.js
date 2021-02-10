@@ -15,7 +15,7 @@ const Viewproducts = ({ allproduct, product }) => {
     <Link
       className="btn primary-btn"
       target="_blank"
-      to={`/product/${row["_id"]}`}
+      to={`/admin/product/${row["_id"]}`}
     >
       View
     </Link>
@@ -49,10 +49,6 @@ const Viewproducts = ({ allproduct, product }) => {
     {
       prop: "name",
       title: "Name",
-    },
-    {
-      title: "Actions",
-      prop: "actions",
     },
     { title: "Actions", render: renderUrl },
   ];

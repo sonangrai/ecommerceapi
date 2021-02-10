@@ -9,6 +9,7 @@ import Home from "../Home";
 import Profile from "../auth/Profile";
 import Login from "../auth/Login";
 import Index from "../products/Index";
+import Productdetail from "../products/Productdetail";
 
 const index = ({ isAuthenticated }) => {
   return (
@@ -25,6 +26,11 @@ const index = ({ isAuthenticated }) => {
                 <Route exact path="/admin/home" component={Home} />
                 <Route exact path="/admin/profile" component={Profile} />
                 <Route exact path="/admin/product" component={Index} />
+                <Route
+                  exact
+                  path="/admin/product/:id"
+                  component={Productdetail}
+                />
               </Switch>
             </div>
             <Footer />

@@ -12,11 +12,7 @@ const Viewproducts = ({ allproduct, product }) => {
   }, [allproduct]);
 
   const renderUrl = (val, row) => (
-    <Link
-      className="btn primary-btn"
-      target="_blank"
-      to={`/admin/product/${row["_id"]}`}
-    >
+    <Link className="btn primary-btn" to={`/admin/product/${row["_id"]}`}>
       View
     </Link>
   );

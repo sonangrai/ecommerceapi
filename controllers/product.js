@@ -61,6 +61,16 @@ exports.getallproduct = async (req, res) => {
   }
 };
 
+//Getting the Product By ID
+exports.getproduct = async (req, res) => {
+  try {
+    product = await Product.findById(req.params.id);
+    return res.json(product);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
 //Updating Product
 exports.updateproduct = async (req, res) => {
   const {

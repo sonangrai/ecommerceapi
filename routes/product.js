@@ -4,12 +4,16 @@ const {
   getallproductbycat,
   getallproduct,
   updateproduct,
+  getproduct,
 } = require("../controllers/product");
 const { check } = require("express-validator");
 const router = express.Router();
 
 //Get All Product By Category
-router.get("/product/:cat", getallproductbycat);
+router.get("/product/cat/:cat", getallproductbycat);
+
+//Get All Product By ID
+router.get("/product/:id", getproduct);
 
 //Get All Product
 router.get("/product", getallproduct);

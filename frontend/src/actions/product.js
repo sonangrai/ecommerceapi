@@ -48,3 +48,23 @@ export const addproduct = (data) => async (dispatch) => {
     });
   }
 };
+
+//Getting the products
+export const getproduct = (id) => async (dispatch) => {
+  try {
+    const res = await Axios.get(`/api/product/${id}`);
+    dispatch({
+      type: types.PRODUCT_LOADED,
+      payload: res.data,
+    });
+    return res.data;
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+    dispatch({
+      type: types.PRODUCT_LOADED_FAIL,
+    });
+  }
+};

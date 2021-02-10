@@ -102,6 +102,7 @@
 
 .main__row {
   @include full-flexer;
+  min-height: 80vh;
   .tab__bar {
     width: 20%;
     border-right: 1px solid $light-color;

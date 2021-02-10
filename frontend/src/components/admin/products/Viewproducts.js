@@ -1,63 +1,74 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { allproduct } from "../../../actions/product";
 import Loader from "../layout/Loader";
 import PropTypes from "prop-types";
-import Search from "../common/Search";
-import Table from "../common/Table";
+const DataTable = require("react-data-components").DataTable;
 
 const Viewproducts = ({ allproduct, product }) => {
   useEffect(() => {
     allproduct();
   }, [allproduct]);
 
-  const [row, setrow] = useState(product);
+  const renderUrl = (val, row) => (
+    <Link
+      className="btn primary-btn"
+      target="_blank"
+      to={`/product/${row["_id"]}`}
+    >
+      View
+    </Link>
+  );
 
   const columns = [
-    "SNo",
-    "Name",
-    "Color",
-    "Category",
-    "Subcategory",
-    "Rate",
-    "Inventory Amount",
-    "Actions",
+    {
+      prop: "name",
+      title: "Name",
+    },
+    {
+      prop: "color",
+      title: "Color",
+    },
+    {
+      prop: "category",
+      title: "Category",
+    },
+    {
+      prop: "subcategory",
+      title: "Sub Category",
+    },
+    {
+      prop: "rate",
+      title: "Rate",
+    },
+    {
+      prop: "invamount",
+      title: "Inventroy Amount",
+    },
+    {
+      prop: "name",
+      title: "Name",
+    },
+    {
+      title: "Actions",
+      prop: "actions",
+    },
+    { title: "Actions", render: renderUrl },
   ];
-
-  const dataindex = [
-    "name",
-    "color",
-    "category",
-    "subcategory",
-    "rate",
-    "invamount",
-  ];
-
-  //Getting Filtered Data from Search
-  const returnfilterdata = (fdata) => {
-    if (fdata.length !== 0) {
-      setrow(fdata);
-    }
-  };
 
   return (
     <Fragment>
-      {row ? (
-        <>
-          <div className="search__box">
-            <Search row={row} returnfilterdata={returnfilterdata} />
-          </div>
-          <div className="view__cnt">
-            <div className="tbl__cont">
-              <Table
-                column={columns}
-                row={row}
-                dataindex={dataindex}
-                to="product"
-              />
-            </div>
-          </div>
-        </>
+      {product ? (
+        <div className="data__tbl">
+          <DataTable
+            keys="_id"
+            columns={columns}
+            initialData={product}
+            initialPageLength={5}
+            initialSortBy={{ prop: "date", order: "descending" }}
+          />
+        </div>
       ) : (
         <Loader />
       )}

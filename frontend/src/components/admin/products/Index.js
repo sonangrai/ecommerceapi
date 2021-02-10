@@ -16,7 +16,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div className="min-height">
+      <>
         <Helmet>
                   <title>Product - Pasal</title>     
         </Helmet>
@@ -54,7 +54,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </div>
+      </>
       <Alert />
     </Fragment>
   );

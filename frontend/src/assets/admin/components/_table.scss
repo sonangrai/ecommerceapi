@@ -1,5 +1,18 @@
-.tbl__cont {
+.data__tbl {
   overflow-x: scroll;
+  .row {
+    margin: 0;
+    .col-xs-4 {
+      width: 40%;
+      div {
+        margin-bottom: 0.8em;
+        display: flex;
+      }
+    }
+    .col-xs-8 {
+      width: 60%;
+    }
+  }
   .tbl {
     width: 100%;
     table-layout: fixed;

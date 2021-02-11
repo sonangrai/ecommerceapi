@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import login from "./auth/Login";
 import Notfound from "./Notfound";
 import Forgot from "./auth/Forgot";
@@ -11,19 +11,13 @@ import "../../assets/admin/main.css";
 const routes = () => {
   return (
     <Fragment>
-      <Router>
-        <Switch>
-          <Route exact path="/admin/login" component={login} />
-          <Route exact path="/admin/forgot" component={Forgot} />
-          <Route
-            exact
-            path="/admin/recover/:uid/:tid"
-            component={Newpassword}
-          />
-          <Route component={index} />
-          <Route component={Notfound} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/admin/login" component={login} />
+        <Route exact path="/admin/forgot" component={Forgot} />
+        <Route exact path="/admin/recover/:uid/:tid" component={Newpassword} />
+        <Route component={index} />
+        <Route path="*" component={Notfound} />
+      </Switch>
     </Fragment>
   );
 };

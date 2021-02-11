@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { loadUser } from "./actions/auth";
 import { Helmet } from "react-helmet";
 
@@ -24,9 +24,7 @@ function App() {
       </Helmet>
       <Provider store={store}>
         <Router>
-          <Switch>
-            <Route component={routes} />
-          </Switch>
+          <Route component={routes} />
         </Router>
       </Provider>
     </Fragment>

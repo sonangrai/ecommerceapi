@@ -67,3 +67,19 @@ exports.deleteimage = async (req, res) => {
     }
   });
 };
+
+//Getting the image of products
+exports.getimage = async (req, res) => {
+  //Finding the product existence
+  const check = await Product.findById(req.params.pid);
+  if (!check) {
+    return res.status(401).json({ msg: "Image not found for this Product" });
+  }
+
+  try {
+    const d = await Gallery.find({ productid: req.params.pid });
+    res.json(d);
+  } catch (error) {
+    return res.json(error);
+  }
+};

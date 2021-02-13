@@ -25,7 +25,9 @@ const Productdetail = ({ getproduct, product, match }) => {
             </div>
             <div className="item__action">
               <h2>
-                <Link className="btn btn-secondary">Edit</Link>
+                <Link to="" className="btn btn-secondary">
+                  Edit
+                </Link>
               </h2>
             </div>
           </div>

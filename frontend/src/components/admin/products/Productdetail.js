@@ -2,18 +2,23 @@ import React, { Fragment, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getimage } from "../../../actions/gallery";
 import { getproduct } from "../../../actions/product";
 import Loader from "../layout/Loader";
 
-const Productdetail = ({ getproduct, product, match }) => {
+const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
   useEffect(() => {
     getproduct(match.params.id);
   }, [getproduct, match]);
 
+  useEffect(() => {
+    getimage(match.params.id);
+  }, [getimage, match]);
+
   return (
     <Fragment>
       {product ? (
-        <>
+        <div className="view__product">
           <Helmet>
             <title>
               {product.name} - {product.category}
@@ -31,16 +36,31 @@ const Productdetail = ({ getproduct, product, match }) => {
               </h2>
             </div>
           </div>
-          <div className="tiles__container">
-            <div className="tile__card">
-              <strong>{product.name}</strong>
+          <div className="card-columns">
+            <div className="card">
+              <h3>Product Information</h3>
+              <h2>{product.name}</h2>
               <p>{product.description}</p>
-              <span>{product.category}</span>
-              <span>{product.subcategory}</span>
-              <strong>{product.rate}</strong>
+              <div className="cat">
+                <span>{product.category}</span>
+              </div>
+              <div className="subcat">
+                <span>{product.subcategory}</span>
+              </div>
+              <div className="rate">
+                <strong>{product.rate}</strong>
+              </div>
             </div>
+            {gallery && (
+              <div className="card slid">
+                {gallery.length === 0 && <span>No Image For this Product</span>}
+                {gallery.map((gal) => (
+                  <img key={gal._id} src={gal.imageurl} alt={gal.imageurl} />
+                ))}
+              </div>
+            )}
           </div>
-        </>
+        </div>
       ) : (
         <Loader />
       )}
@@ -50,6 +70,9 @@ const Productdetail = ({ getproduct, product, match }) => {
 
 const mapStateToProps = (state) => ({
   product: state.product.product,
+  gallery: state.gallery.gallery,
 });
 
-export default connect(mapStateToProps, { getproduct })(Productdetail);
+export default connect(mapStateToProps, { getproduct, getimage })(
+  Productdetail
+);

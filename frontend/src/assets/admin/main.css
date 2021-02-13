@@ -1174,6 +1174,48 @@ html {
   width: 100%;
 }
 
+.title__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.4em;
+  border-radius: 8px;
+  background-color: #00000020;
+  margin-bottom: 1em;
+}
+
+.title__box .title__name h2 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+.view__product .card-columns .card {
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.view__product .card-columns .card h3 {
+  font-size: 1.4em;
+  border-bottom: 1px solid #00000020;
+}
+
+.view__product .card-columns .card h2 {
+  font-weight: 600;
+  color: #f16624;
+}
+
+.view__product .card-columns .slid {
+  padding: 0;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   margin: 0;

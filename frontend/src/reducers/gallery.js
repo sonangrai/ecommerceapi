@@ -16,6 +16,12 @@ export default function gallery(state = initialState, action) {
         galleries: payload,
         loading: false,
       };
+    case types.GALLERY_LOADED:
+      return {
+        ...state,
+        gallery: payload,
+        loading: false,
+      };
     case types.GALLERY_LOADED_FAIL:
     case types.ALL_GALLERY_LOADED_FAIL:
       return state;

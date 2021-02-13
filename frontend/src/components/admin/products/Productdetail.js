@@ -15,7 +15,9 @@ const Productdetail = ({ getproduct, product, match }) => {
       {product ? (
         <>
           <Helmet>
-            <title>{product.name}</title>
+            <title>
+              {product.name} - {product.category}
+            </title>
           </Helmet>
           <div className="title__box">
             <div className="title__name">

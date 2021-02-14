@@ -12,6 +12,7 @@ import Index from "../products/Index";
 import Productdetail from "../products/Productdetail";
 import Editproduct from "../products/Editproduct";
 import Alert from "./Alert";
+import Addimage from "../products/Addimage";
 
 const index = ({ isAuthenticated }) => {
   return (
@@ -37,6 +38,7 @@ const index = ({ isAuthenticated }) => {
                   path="/admin/product/:pid/edit"
                   component={Editproduct}
                 />
+                <Route path="/admin/product/image/:pid" component={Addimage} />
               </Switch>
             </div>
             <Footer />

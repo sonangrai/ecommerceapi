@@ -29,14 +29,18 @@ const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
               <h2>{product.name}</h2>
             </div>
             <div className="item__action">
-              <h2>
-                <Link
-                  to={`/admin/product/${product._id}/edit`}
-                  className="btn btn-secondary"
-                >
-                  Edit
-                </Link>
-              </h2>
+              <Link
+                to={`/admin/product/image/${product._id}`}
+                className="btn btn-primary mr-2"
+              >
+                Add Image
+              </Link>
+              <Link
+                to={`/admin/product/${product._id}/edit`}
+                className="btn btn-secondary"
+              >
+                Edit
+              </Link>
             </div>
           </div>
           <div className="card-columns">

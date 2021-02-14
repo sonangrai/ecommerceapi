@@ -63,3 +63,35 @@
     }
   }
 }
+
+.gal__add {
+  .gall__row {
+    column-count: 3;
+    grid-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+    .gal__item {
+      display: inline-flex;
+      border: 1px solid $primary-color;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      min-height: 210px;
+      img {
+        width: 80%;
+      }
+      form {
+        width: 80%;
+        text-align: center;
+        label {
+          width: 100%;
+          font-weight: 600;
+        }
+        button {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+}

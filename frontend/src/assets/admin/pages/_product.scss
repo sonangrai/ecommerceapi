@@ -37,3 +37,29 @@
     }
   }
 }
+
+.edit__product {
+  .view__item {
+    margin-bottom: 1em;
+    label {
+      width: 100%;
+      font-size: 0.82m;
+      color: $dark-text;
+    }
+    input,
+    textarea,
+    select {
+      width: 300px;
+      border: 1px solid $primary-color;
+      padding: 0.2em 0.8em;
+      text-transform: capitalize;
+      &:focus {
+        background-color: $light-color;
+      }
+    }
+    .small__info {
+      margin-left: 1em;
+      font-weight: 600;
+    }
+  }
+}

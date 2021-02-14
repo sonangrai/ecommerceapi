@@ -1216,6 +1216,36 @@ html {
   padding: 0;
 }
 
+.edit__product .view__item {
+  margin-bottom: 1em;
+}
+
+.edit__product .view__item label {
+  width: 100%;
+  font-size: 0.82m;
+  color: #857d7d;
+}
+
+.edit__product .view__item input,
+.edit__product .view__item textarea,
+.edit__product .view__item select {
+  width: 300px;
+  border: 1px solid #f16624;
+  padding: 0.2em 0.8em;
+  text-transform: capitalize;
+}
+
+.edit__product .view__item input:focus,
+.edit__product .view__item textarea:focus,
+.edit__product .view__item select:focus {
+  background-color: #e0ddda;
+}
+
+.edit__product .view__item .small__info {
+  margin-left: 1em;
+  font-weight: 600;
+}
+
 body {
   font-family: "Noto Sans", sans-serif;
   margin: 0;

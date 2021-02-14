@@ -30,7 +30,10 @@ const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
             </div>
             <div className="item__action">
               <h2>
-                <Link to="" className="btn btn-secondary">
+                <Link
+                  to={`/admin/product/${product._id}/edit`}
+                  className="btn btn-secondary"
+                >
                   Edit
                 </Link>
               </h2>

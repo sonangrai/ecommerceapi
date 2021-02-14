@@ -10,6 +10,7 @@ import Profile from "../auth/Profile";
 import Login from "../auth/Login";
 import Index from "../products/Index";
 import Productdetail from "../products/Productdetail";
+import Editproduct from "../products/Editproduct";
 
 const index = ({ isAuthenticated }) => {
   return (
@@ -30,6 +31,10 @@ const index = ({ isAuthenticated }) => {
                   exact
                   path="/admin/product/:id"
                   component={Productdetail}
+                />
+                <Route
+                  path="/admin/product/:pid/edit"
+                  component={Editproduct}
                 />
               </Switch>
             </div>

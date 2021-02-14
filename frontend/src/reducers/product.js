@@ -18,6 +18,8 @@ export default function product(state = initialstate, action) {
       return state;
     case types.PRODUCT_ADDED:
       return { ...state, products: [payload, ...state.products] };
+    case types.PRODUCT_UPDATED:
+      return { ...state, product: payload };
     default:
       return state;
   }

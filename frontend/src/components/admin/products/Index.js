@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import Alert from "../layout/Alert";
 
 import { Helmet } from "react-helmet";
 import Viewproducts from "./Viewproducts";
@@ -55,7 +54,6 @@ const Index = () => {
           </div>
         </div>
       </>
-      <Alert />
     </Fragment>
   );
 };

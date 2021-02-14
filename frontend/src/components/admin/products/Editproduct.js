@@ -2,7 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
 import { getallcategory } from "../../../actions/category";
-import { addproduct, getproduct } from "../../../actions/product";
+import { updateproduct, getproduct } from "../../../actions/product";
 import Loader from "../layout/Loader";
 
 const Editproduct = ({
@@ -10,6 +10,7 @@ const Editproduct = ({
   categories,
   getproduct,
   product,
+  updateproduct,
   match,
 }) => {
   const [data, setdata] = useState({
@@ -64,7 +65,7 @@ const Editproduct = ({
   //Submit FOrm
   const onSubmit = (e) => {
     e.preventDefault();
-    addproduct(data);
+    updateproduct(data, match.params.pid);
     e.target.reset();
   };
 
@@ -183,7 +184,7 @@ const Editproduct = ({
                 </div>
                 <div className="view__item">
                   <button type="submit" className="primary-btn">
-                    Submit Mail
+                    Update
                   </button>
                   <button
                     type="reset"
@@ -209,6 +210,8 @@ const mapStateToProps = (state) => ({
   product: state.product.product,
 });
 
-export default connect(mapStateToProps, { getallcategory, getproduct })(
-  Editproduct
-);
+export default connect(mapStateToProps, {
+  getallcategory,
+  getproduct,
+  updateproduct,
+})(Editproduct);

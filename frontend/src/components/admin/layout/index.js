@@ -11,6 +11,7 @@ import Login from "../auth/Login";
 import Index from "../products/Index";
 import Productdetail from "../products/Productdetail";
 import Editproduct from "../products/Editproduct";
+import Alert from "./Alert";
 
 const index = ({ isAuthenticated }) => {
   return (
@@ -44,6 +45,7 @@ const index = ({ isAuthenticated }) => {
       ) : (
         <Route component={Login} />
       )}
+      <Alert />
     </Fragment>
   );
 };

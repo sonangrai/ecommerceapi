@@ -68,3 +68,29 @@ export const getproduct = (id) => async (dispatch) => {
     });
   }
 };
+
+//EDit Product
+export const updateproduct = (data, id) => async (dispatch) => {
+  const jdata = JSON.stringify(data);
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  try {
+    const res = await Axios.put(`/api/product/${id}`, jdata, config);
+    dispatch({
+      type: types.PRODUCT_UPDATED,
+      payload: res.data,
+    });
+    dispatch(setAlert("Product updated", "success"));
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+    dispatch({
+      type: types.PRODUCT_UPDATE_FAIL,
+    });
+  }
+};

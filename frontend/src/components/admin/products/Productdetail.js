@@ -6,7 +6,14 @@ import { getimage } from "../../../actions/gallery";
 import { getproduct } from "../../../actions/product";
 import Loader from "../layout/Loader";
 
-const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
+const Productdetail = ({
+  getproduct,
+  product,
+  match,
+  getimage,
+  gallery,
+  delimg,
+}) => {
   useEffect(() => {
     getproduct(match.params.id);
   }, [getproduct, match]);
@@ -31,7 +38,7 @@ const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
             <div className="item__action">
               <Link
                 to={`/admin/product/image/${product._id}`}
-                className="btn btn-primary mr-2"
+                className="btn primary-btn mr-2"
               >
                 Add Image
               </Link>
@@ -59,12 +66,14 @@ const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
               </div>
             </div>
             {gallery && (
-              <div className="card slid">
+              <>
                 {gallery.length === 0 && <span>No Image For this Product</span>}
                 {gallery.map((gal) => (
-                  <img key={gal._id} src={gal.imageurl} alt={gal.imageurl} />
+                  <div key={gal._id} className="card slid">
+                    <img src={gal.imageurl} alt={gal.imageurl} />
+                  </div>
                 ))}
-              </div>
+              </>
             )}
           </div>
         </div>
@@ -77,7 +86,7 @@ const Productdetail = ({ getproduct, product, match, getimage, gallery }) => {
 
 const mapStateToProps = (state) => ({
   product: state.product.product,
-  gallery: state.gallery.gallery,
+  gallery: state.gallery.galleries,
 });
 
 export default connect(mapStateToProps, { getproduct, getimage })(

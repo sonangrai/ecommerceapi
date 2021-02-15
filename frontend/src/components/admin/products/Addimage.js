@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { connect } from "react-redux";
 import Helmet from "react-helmet";
 import { getproduct } from "../../../actions/product";
-import { getimage, uploadimg } from "../../../actions/gallery";
+import { delimg, getimage, uploadimg } from "../../../actions/gallery";
 import Loader from "../layout/Loader";
 
 const Addimage = ({
@@ -12,6 +12,7 @@ const Addimage = ({
   getimage,
   gallery,
   uploadimg,
+  delimg,
 }) => {
   useEffect(() => {
     getproduct(match.params.pid);
@@ -47,6 +48,16 @@ const Addimage = ({
                 {gallery.map((gal) => (
                   <div className="gal__item" key={gal._id}>
                     <img src={gal.imageurl} alt="" />
+                    <span className="del__img">
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => {
+                          delimg(gal._id);
+                        }}
+                      >
+                        X
+                      </button>
+                    </span>
                   </div>
                 ))}
                 <div className="gal__item">
@@ -73,9 +84,12 @@ const Addimage = ({
 
 const mapStateToProps = (state) => ({
   product: state.product.product,
-  gallery: state.gallery.gallery,
+  gallery: state.gallery.galleries,
 });
 
-export default connect(mapStateToProps, { getproduct, getimage, uploadimg })(
-  Addimage
-);
+export default connect(mapStateToProps, {
+  getproduct,
+  getimage,
+  uploadimg,
+  delimg,
+})(Addimage);

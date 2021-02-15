@@ -7,12 +7,12 @@ export const getimage = (pid) => async (dispatch) => {
   try {
     const res = await Axios.get(`/api/image/${pid}`);
     dispatch({
-      type: types.GALLERY_LOADED,
+      type: types.ALL_GALLERY_LOADED,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
-      type: types.GALLERY_LOADED_FAIL,
+      type: types.ALL_GALLERY_LOADED_FAIL,
     });
   }
 };
@@ -43,5 +43,25 @@ export const uploadimg = (data, id) => async (dispatch) => {
     dispatch({
       type: types.IMAGE_UPLOAD_FAIL,
     });
+  }
+};
+
+//Deleting the image from product gallery
+export const delimg = (id) => async (dispatch) => {
+  try {
+    const res = await Axios.post(`/api/gallery/destroy/${id}`);
+    dispatch({
+      type: types.IMAGE_DELETED,
+      payload: res.data,
+    });
+    dispatch(setAlert("Image Deleted", "success"));
+  } catch (err) {
+    dispatch({
+      type: types.IMAGE_DEL_FAIL,
+    });
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
   }
 };

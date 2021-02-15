@@ -14,6 +14,8 @@ const Addimage = ({
   uploadimg,
   delimg,
 }) => {
+  const [loading, setloading] = useState(false);
+
   useEffect(() => {
     getproduct(match.params.pid);
   }, [getproduct, match]);
@@ -32,7 +34,10 @@ const Addimage = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    uploadimg(data, match.params.pid);
+    setloading(
+      true,
+      uploadimg(data, match.params.pid).then(() => setloading(false))
+    );
   };
 
   return (
@@ -68,6 +73,11 @@ const Addimage = ({
                       Add Image
                     </button>
                   </form>
+                  {loading && (
+                    <div className="uploading__anim">
+                      <span>Uploading</span>
+                    </div>
+                  )}
                 </div>
               </>
             ) : (

@@ -1269,6 +1269,7 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 210px;
+  position: relative;
 }
 
 .gal__add .gall__row .gal__item img {
@@ -1287,6 +1288,14 @@ html {
 
 .gal__add .gall__row .gal__item form button {
   margin-top: 1em;
+}
+
+.gal__add .gall__row .gal__item .uploading__anim {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 @media screen and (max-width: 1100px) {

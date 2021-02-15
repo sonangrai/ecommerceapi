@@ -78,6 +78,7 @@
       align-items: center;
       justify-content: center;
       min-height: 210px;
+      position: relative;
       img {
         width: 80%;
       }
@@ -91,6 +92,12 @@
         button {
           margin-top: 1em;
         }
+      }
+      .uploading__anim {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
   }

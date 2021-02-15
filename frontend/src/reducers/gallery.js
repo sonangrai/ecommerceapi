@@ -21,7 +21,6 @@ export default function gallery(state = initialState, action) {
         galleries: [payload, ...state.galleries],
       };
     case types.IMAGE_DELETED:
-      console.log(payload);
       return {
         ...state,
         galleries: state.galleries.filter(

@@ -4,6 +4,7 @@ const RatingSchema = new mongoose.Schema(
   {
     productid: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
     },
     rate: {
       type: Number,

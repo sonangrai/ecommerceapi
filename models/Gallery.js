@@ -4,6 +4,7 @@ const GallerySchema = new mongoose.Schema(
   {
     productid: {
       type: mongoose.Schema.Types.ObjectId,
+      ref: "product",
     },
     imageurl: {
       type: String,

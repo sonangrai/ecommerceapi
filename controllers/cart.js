@@ -19,3 +19,23 @@ exports.addcart = async (req, res) => {
     res.json(error);
   }
 };
+
+//Removing item from the cart
+exports.removeitem = async (req, res) => {
+  try {
+    const dres = await Cart.findByIdAndDelete(req.params.id);
+    res.json(dres);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+//Get All Cart Info
+exports.getallcart = async (req, res) => {
+  try {
+    const resdata = await Cart.find();
+    res.json(resdata);
+  } catch (error) {
+    res.json(error);
+  }
+};

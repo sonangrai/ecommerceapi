@@ -13,6 +13,13 @@ const OrderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  status: {
+    type: String,
+  },
+  orderdate: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("Order", OrderSchema);

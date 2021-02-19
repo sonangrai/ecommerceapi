@@ -5,12 +5,13 @@ const OrderSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
-  items: {
-    type: Array,
-    default: [],
+  productid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
   },
-  status: {
-    type: String,
+  quantity: {
+    type: Number,
+    required: true,
   },
 });
 

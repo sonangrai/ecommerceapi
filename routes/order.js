@@ -4,3 +4,5 @@ const router = express.Router();
 
 //Placing the order
 router.post("/order/", placeorder);
+
+module.exports = router;
